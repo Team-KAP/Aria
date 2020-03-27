@@ -1,3 +1,10 @@
+## Editing Code
+
+When cloning for the first time, it's necessary to run `npm install` and `npm install gh-pages --save-dev` in the cloned directory. 
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
