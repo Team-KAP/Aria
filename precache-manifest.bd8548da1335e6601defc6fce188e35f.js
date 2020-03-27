@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f3b0f8d236221b66ee68f6464466890a",
+    "revision": "00b3eed496ef3fdd0ea59ebfb6cf1ad3",
     "url": "/Neuralize/index.html"
   },
   {
-    "revision": "206c0ce925efe23b3866",
-    "url": "/Neuralize/static/css/main.5f361e03.chunk.css"
+    "revision": "29a1679b6c5468d44e64",
+    "url": "/Neuralize/static/css/main.523f09c5.chunk.css"
   },
   {
     "revision": "08e698eed470a3282a72",
@@ -16,15 +16,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Neuralize/static/js/2.315677d3.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "206c0ce925efe23b3866",
-    "url": "/Neuralize/static/js/main.3e4d2c97.chunk.js"
+    "revision": "29a1679b6c5468d44e64",
+    "url": "/Neuralize/static/js/main.fa4469e5.chunk.js"
   },
   {
     "revision": "c1fea023b4fb4971dc73",
     "url": "/Neuralize/static/js/runtime-main.3028b935.js"
   },
   {
-    "revision": "5d5d9eefa31e5e13a6610d9fa7a283bb",
-    "url": "/Neuralize/static/media/logo.5d5d9eef.svg"
+    "revision": "ee7cd8ed2dcec943251eb2763684fc6f",
+    "url": "/Neuralize/static/media/logo.ee7cd8ed.svg"
   }
 ]);
