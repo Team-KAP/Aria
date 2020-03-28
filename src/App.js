@@ -17,7 +17,7 @@ constructor(props){
     return (
       <div class="wrapper">
         <p></p>
-        <JNav {...this.state} />
+        <JNav class="sidebar" {...this.state} />
         <JMain />
       </div>
     );

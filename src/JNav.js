@@ -15,7 +15,7 @@ class JNav extends Component {
         <Tab eventKey="build" title="Build">
           <div>
           <p>o</p>
-          <BuildPanel class="sidebar" />
+          <BuildPanel {...this.props} />
           </div>
         </Tab>
         <Tab eventKey="learn" title="Learn">

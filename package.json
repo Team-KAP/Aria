@@ -11,6 +11,7 @@
     "bootswatch": "^4.4.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
+    "react-bootstrap-slider": "^2.2.3",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
