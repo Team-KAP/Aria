@@ -11,22 +11,24 @@ class JNav extends Component {
 
   render() {
     return (
-      <Tabs defaultActiveKey="build" id="settings">
-        <Tab eventKey="build" title="Build">
-          <div>
-          <p>o</p>
-          <BuildPanel {...this.props} />
-          </div>
-        </Tab>
-        <Tab eventKey="learn" title="Learn">
-          <div>
-            <p>mega</p>
-          </div>
-        </Tab>
-        <Tab eventKey="train" title="Train">
-          <p>lul</p>
-        </Tab>
-      </Tabs>
+      <div id="sidebar">
+        <Tabs defaultActiveKey="build" id="settings">
+          <Tab eventKey="build" title="Build">
+            <div>
+            <p>o</p>
+            <BuildPanel {...this.props} />
+            </div>
+          </Tab>
+          <Tab eventKey="learn" title="Learn">
+            <div>
+              <p>mega</p>
+            </div>
+          </Tab>
+          <Tab eventKey="train" title="Train">
+            <p>lul</p>
+          </Tab>
+        </Tabs>
+      </div>
     );
   }
 }

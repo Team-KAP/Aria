@@ -14,9 +14,7 @@ class BuildPanel extends Component {
 
     setValue = (val => this.setState({ value: val }))
 
-    stfu() {
-        console.log("stfu");
-    }
+
 
     changeValue(event) {
         console.log("Current Value is ", event.target.value);
