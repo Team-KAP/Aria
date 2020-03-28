@@ -1,6 +1,6 @@
 ## Editing Code
 
-When cloning for the first time, it's necessary to run `npm install` and `npm install gh-pages --save-dev` in the cloned directory. 
+When cloning for the first time, it's necessary to run `npm install` in the cloned directory. 
 
 
 # DEFAULT REACT README DOCUMENTATION
