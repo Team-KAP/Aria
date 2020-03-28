@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Neuralize/static/css/main.0c901862.chunk.css",
-    "main.js": "/Neuralize/static/js/main.536241a3.chunk.js",
-    "main.js.map": "/Neuralize/static/js/main.536241a3.chunk.js.map",
+    "main.js": "/Neuralize/static/js/main.e71dcc8c.chunk.js",
+    "main.js.map": "/Neuralize/static/js/main.e71dcc8c.chunk.js.map",
     "runtime-main.js": "/Neuralize/static/js/runtime-main.3028b935.js",
     "runtime-main.js.map": "/Neuralize/static/js/runtime-main.3028b935.js.map",
     "static/css/2.7eade81e.chunk.css": "/Neuralize/static/css/2.7eade81e.chunk.css",
     "static/js/2.1267eae0.chunk.js": "/Neuralize/static/js/2.1267eae0.chunk.js",
     "static/js/2.1267eae0.chunk.js.map": "/Neuralize/static/js/2.1267eae0.chunk.js.map",
     "index.html": "/Neuralize/index.html",
-    "precache-manifest.00ea83f088658f5ca9e11498fdebd6ff.js": "/Neuralize/precache-manifest.00ea83f088658f5ca9e11498fdebd6ff.js",
+    "precache-manifest.fbfdbf384d45a5e493a3736bf785123c.js": "/Neuralize/precache-manifest.fbfdbf384d45a5e493a3736bf785123c.js",
     "service-worker.js": "/Neuralize/service-worker.js",
     "static/css/2.7eade81e.chunk.css.map": "/Neuralize/static/css/2.7eade81e.chunk.css.map",
     "static/css/main.0c901862.chunk.css.map": "/Neuralize/static/css/main.0c901862.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.7eade81e.chunk.css",
     "static/js/2.1267eae0.chunk.js",
     "static/css/main.0c901862.chunk.css",
-    "static/js/main.536241a3.chunk.js"
+    "static/js/main.e71dcc8c.chunk.js"
   ]
 }
