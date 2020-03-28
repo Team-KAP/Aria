@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/Neuralize/static/css/main.834ef24e.chunk.css",
-    "main.js": "/Neuralize/static/js/main.b76e6f31.chunk.js",
-    "main.js.map": "/Neuralize/static/js/main.b76e6f31.chunk.js.map",
+    "main.css": "/Neuralize/static/css/main.0c901862.chunk.css",
+    "main.js": "/Neuralize/static/js/main.4ed96f6b.chunk.js",
+    "main.js.map": "/Neuralize/static/js/main.4ed96f6b.chunk.js.map",
     "runtime-main.js": "/Neuralize/static/js/runtime-main.3028b935.js",
     "runtime-main.js.map": "/Neuralize/static/js/runtime-main.3028b935.js.map",
-    "static/css/2.b5efd36a.chunk.css": "/Neuralize/static/css/2.b5efd36a.chunk.css",
-    "static/js/2.29040879.chunk.js": "/Neuralize/static/js/2.29040879.chunk.js",
-    "static/js/2.29040879.chunk.js.map": "/Neuralize/static/js/2.29040879.chunk.js.map",
+    "static/css/2.7eade81e.chunk.css": "/Neuralize/static/css/2.7eade81e.chunk.css",
+    "static/js/2.c73c593a.chunk.js": "/Neuralize/static/js/2.c73c593a.chunk.js",
+    "static/js/2.c73c593a.chunk.js.map": "/Neuralize/static/js/2.c73c593a.chunk.js.map",
     "index.html": "/Neuralize/index.html",
-    "precache-manifest.89d0f6a7b9e962ca37feb59e5a5df0de.js": "/Neuralize/precache-manifest.89d0f6a7b9e962ca37feb59e5a5df0de.js",
+    "precache-manifest.032bfc6a5d7301554cc00514b76085da.js": "/Neuralize/precache-manifest.032bfc6a5d7301554cc00514b76085da.js",
     "service-worker.js": "/Neuralize/service-worker.js",
-    "static/css/2.b5efd36a.chunk.css.map": "/Neuralize/static/css/2.b5efd36a.chunk.css.map",
-    "static/css/main.834ef24e.chunk.css.map": "/Neuralize/static/css/main.834ef24e.chunk.css.map",
-    "static/js/2.29040879.chunk.js.LICENSE.txt": "/Neuralize/static/js/2.29040879.chunk.js.LICENSE.txt",
+    "static/css/2.7eade81e.chunk.css.map": "/Neuralize/static/css/2.7eade81e.chunk.css.map",
+    "static/css/main.0c901862.chunk.css.map": "/Neuralize/static/css/main.0c901862.chunk.css.map",
+    "static/js/2.c73c593a.chunk.js.LICENSE.txt": "/Neuralize/static/js/2.c73c593a.chunk.js.LICENSE.txt",
     "static/media/logo.svg": "/Neuralize/static/media/logo.ee7cd8ed.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.3028b935.js",
-    "static/css/2.b5efd36a.chunk.css",
-    "static/js/2.29040879.chunk.js",
-    "static/css/main.834ef24e.chunk.css",
-    "static/js/main.b76e6f31.chunk.js"
+    "static/css/2.7eade81e.chunk.css",
+    "static/js/2.c73c593a.chunk.js",
+    "static/css/main.0c901862.chunk.css",
+    "static/js/main.4ed96f6b.chunk.js"
   ]
 }
