@@ -1,23 +1,26 @@
 {
   "files": {
-    "main.css": "/Neuralize/static/css/main.523f09c5.chunk.css",
-    "main.js": "/Neuralize/static/js/main.c202f71d.chunk.js",
-    "main.js.map": "/Neuralize/static/js/main.c202f71d.chunk.js.map",
+    "main.css": "/Neuralize/static/css/main.0bbeb6f4.chunk.css",
+    "main.js": "/Neuralize/static/js/main.d2df35cd.chunk.js",
+    "main.js.map": "/Neuralize/static/js/main.d2df35cd.chunk.js.map",
     "runtime-main.js": "/Neuralize/static/js/runtime-main.3028b935.js",
     "runtime-main.js.map": "/Neuralize/static/js/runtime-main.3028b935.js.map",
-    "static/js/2.315677d3.chunk.js": "/Neuralize/static/js/2.315677d3.chunk.js",
-    "static/js/2.315677d3.chunk.js.map": "/Neuralize/static/js/2.315677d3.chunk.js.map",
+    "static/css/2.7eade81e.chunk.css": "/Neuralize/static/css/2.7eade81e.chunk.css",
+    "static/js/2.11a588cf.chunk.js": "/Neuralize/static/js/2.11a588cf.chunk.js",
+    "static/js/2.11a588cf.chunk.js.map": "/Neuralize/static/js/2.11a588cf.chunk.js.map",
     "index.html": "/Neuralize/index.html",
-    "precache-manifest.a0bc3b528abc0e49c004610dfda98296.js": "/Neuralize/precache-manifest.a0bc3b528abc0e49c004610dfda98296.js",
+    "precache-manifest.6b76b3788211089408e1612d0608fe22.js": "/Neuralize/precache-manifest.6b76b3788211089408e1612d0608fe22.js",
     "service-worker.js": "/Neuralize/service-worker.js",
-    "static/css/main.523f09c5.chunk.css.map": "/Neuralize/static/css/main.523f09c5.chunk.css.map",
-    "static/js/2.315677d3.chunk.js.LICENSE.txt": "/Neuralize/static/js/2.315677d3.chunk.js.LICENSE.txt",
+    "static/css/2.7eade81e.chunk.css.map": "/Neuralize/static/css/2.7eade81e.chunk.css.map",
+    "static/css/main.0bbeb6f4.chunk.css.map": "/Neuralize/static/css/main.0bbeb6f4.chunk.css.map",
+    "static/js/2.11a588cf.chunk.js.LICENSE.txt": "/Neuralize/static/js/2.11a588cf.chunk.js.LICENSE.txt",
     "static/media/logo.svg": "/Neuralize/static/media/logo.ee7cd8ed.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.3028b935.js",
-    "static/js/2.315677d3.chunk.js",
-    "static/css/main.523f09c5.chunk.css",
-    "static/js/main.c202f71d.chunk.js"
+    "static/css/2.7eade81e.chunk.css",
+    "static/js/2.11a588cf.chunk.js",
+    "static/css/main.0bbeb6f4.chunk.css",
+    "static/js/main.d2df35cd.chunk.js"
   ]
 }
