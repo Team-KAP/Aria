@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
-
+import BuildPanel from "./BuildPanel.js"
 
 class JNav extends Component {
   constructor(props) {
@@ -11,14 +11,19 @@ class JNav extends Component {
 
   render() {
     return (
-      <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-        <Tab eventKey="home" title="Home">
-          <p>stfu</p>
+      <Tabs defaultActiveKey="build" id="settings">
+        <Tab eventKey="build" title="Build">
+          <div>
+          <p>o</p>
+          <BuildPanel class="sidebar" />
+          </div>
         </Tab>
-        <Tab eventKey="profile" title="Profile">
-          <p>omega</p>
+        <Tab eventKey="learn" title="Learn">
+          <div>
+            <p>mega</p>
+          </div>
         </Tab>
-        <Tab eventKey="contact" title="Contact">
+        <Tab eventKey="train" title="Train">
           <p>lul</p>
         </Tab>
       </Tabs>
