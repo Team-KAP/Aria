@@ -19,6 +19,8 @@ constructor(props){
         <p></p>
         <JNav class="sidebar" {...this.state} />
         <JMain />
+        <JNav {...this.state} />
+        
       </div>
     );
   }
@@ -27,7 +29,9 @@ constructor(props){
 
 function JMain() {
   return (
-    <div></div>
+    <div id="content">
+
+    </div>
   );
 }
 
