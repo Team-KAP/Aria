@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import BuildPanel from "./BuildPanel.js"
+import LearnPanel from "./LearnPanel.js"
 
 class JNav extends Component {
   constructor(props) {
@@ -15,13 +16,12 @@ class JNav extends Component {
         <Tabs defaultActiveKey="build" id="settings">
           <Tab eventKey="build" title="Build">
             <div>
-            <p>o</p>
             <BuildPanel {...this.props} />
             </div>
           </Tab>
           <Tab eventKey="learn" title="Learn">
             <div>
-              <p>mega</p>
+            <LearnPanel {...this.props} />
             </div>
           </Tab>
           <Tab eventKey="train" title="Train">

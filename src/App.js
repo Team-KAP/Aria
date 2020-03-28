@@ -3,13 +3,14 @@ import ReactBootstrap from 'react-bootstrap';
 import logo from './logo.svg';
 import './App.css';
 import JNav from "./JNav.js";
+import network from "./kerasCode.js";
 
 class App extends Component {
 constructor(props){
   super(props);
   this.state = {
-    units: 0,
-    test: 13
+    network: new network(),
+    addLayer: () => this.addLayer(), // pass to buildPanel, to call as needed
   }
 }
 
@@ -21,6 +22,12 @@ constructor(props){
       </div>
     );
   }
+
+  addLayer() { // TODO
+    const network = this.state.network;
+    alert("Added Layer!");
+  }
+  
 }
 
 
