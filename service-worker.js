@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Neuralize/precache-manifest.077260a566d099bc084a460c8287b20d.js"
+  "/Neuralize/precache-manifest.00ea83f088658f5ca9e11498fdebd6ff.js"
 );
 
 self.addEventListener('message', (event) => {

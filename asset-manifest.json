@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/Neuralize/static/css/main.0c901862.chunk.css",
-    "main.js": "/Neuralize/static/js/main.a12204e2.chunk.js",
-    "main.js.map": "/Neuralize/static/js/main.a12204e2.chunk.js.map",
+    "main.js": "/Neuralize/static/js/main.536241a3.chunk.js",
+    "main.js.map": "/Neuralize/static/js/main.536241a3.chunk.js.map",
     "runtime-main.js": "/Neuralize/static/js/runtime-main.3028b935.js",
     "runtime-main.js.map": "/Neuralize/static/js/runtime-main.3028b935.js.map",
     "static/css/2.7eade81e.chunk.css": "/Neuralize/static/css/2.7eade81e.chunk.css",
-    "static/js/2.d812dead.chunk.js": "/Neuralize/static/js/2.d812dead.chunk.js",
-    "static/js/2.d812dead.chunk.js.map": "/Neuralize/static/js/2.d812dead.chunk.js.map",
+    "static/js/2.1267eae0.chunk.js": "/Neuralize/static/js/2.1267eae0.chunk.js",
+    "static/js/2.1267eae0.chunk.js.map": "/Neuralize/static/js/2.1267eae0.chunk.js.map",
     "index.html": "/Neuralize/index.html",
-    "precache-manifest.077260a566d099bc084a460c8287b20d.js": "/Neuralize/precache-manifest.077260a566d099bc084a460c8287b20d.js",
+    "precache-manifest.00ea83f088658f5ca9e11498fdebd6ff.js": "/Neuralize/precache-manifest.00ea83f088658f5ca9e11498fdebd6ff.js",
     "service-worker.js": "/Neuralize/service-worker.js",
     "static/css/2.7eade81e.chunk.css.map": "/Neuralize/static/css/2.7eade81e.chunk.css.map",
     "static/css/main.0c901862.chunk.css.map": "/Neuralize/static/css/main.0c901862.chunk.css.map",
-    "static/js/2.d812dead.chunk.js.LICENSE.txt": "/Neuralize/static/js/2.d812dead.chunk.js.LICENSE.txt",
+    "static/js/2.1267eae0.chunk.js.LICENSE.txt": "/Neuralize/static/js/2.1267eae0.chunk.js.LICENSE.txt",
     "static/media/logo.svg": "/Neuralize/static/media/logo.ee7cd8ed.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.3028b935.js",
     "static/css/2.7eade81e.chunk.css",
-    "static/js/2.d812dead.chunk.js",
+    "static/js/2.1267eae0.chunk.js",
     "static/css/main.0c901862.chunk.css",
-    "static/js/main.a12204e2.chunk.js"
+    "static/js/main.536241a3.chunk.js"
   ]
 }
