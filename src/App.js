@@ -4,7 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import JSide from "./JSide.js";
 import { network, layer } from "./kerasCode.js";
-import {ModelPanel} from "./ModelPanel.js"
+import { ModelPanel } from "./ModelPanel.js"
 import { isTSTypeAliasDeclaration } from '@babel/types';
 //import {NetworkGraph} from "./ModelPanel.js"
 
@@ -25,11 +25,32 @@ class App extends Component {
       doSetWeightInit: (layer, new_weight) => this.doSetWeightInit(layer, new_weight),
       doSetNumNodes: (layer, new_nodes) => this.doSetNumNodes(layer, new_nodes),
       doSetLearnRate: (new_learn) => this.doSetLearnRate(new_learn),
+      doSetEpochs: (new_epochs) => this.doSetEpochs(new_epochs),
+      doSetBatchSize: (new_batch) => this.doSetBatchSize(new_batch),
     }
   }
-  
+  doSetEpochs = new_epochs => {
+    let new_network = new network();
+    new_network.copy(this.state.network);
+    new_network.setEpochs(new_epochs);
+    this.setState(prevState => {
+      return {
+        network: new_network
+      }
+    })
+  }
+
+  doSetBatchSize = new_batch => {
+    let new_network = new network();
+    new_network.copy(this.state.network);
+    new_network.setBatchSize(new_batch);
+    this.setState(prevState => {
+      return {
+        network: new_network
+      }
+    })
+  }
   doSelectLayer = selected_layer => {
-    // alert("setting to "+ selected_layer);
     this.setState(prevState => {
       return {
         selectedLayer: selected_layer
@@ -52,13 +73,13 @@ class App extends Component {
   }
 
 
-unhideModelPanel = () => {
-  this.setState(prevState => {
-    return {
-      hideModelPanel: false,
-    }
-  })
-}
+  unhideModelPanel = () => {
+    this.setState(prevState => {
+      return {
+        hideModelPanel: false,
+      }
+    })
+  }
 
   doSetOptimizer = new_opt => {
     console.log("starting");
@@ -98,16 +119,16 @@ unhideModelPanel = () => {
       }
     })
   }
-  
-/**
- * 
- * @param {*} layer numeric id of the layer
- * @param {*} new_act new activation function to be set
- */
-  doSetActivation(layer, new_act){
+
+  /**
+   * 
+   * @param {*} layer numeric id of the layer
+   * @param {*} new_act new activation function to be set
+   */
+  doSetActivation(layer, new_act) {
     let new_network = new network();
     new_network.copy(this.state.network);
-    
+
     new_network.arrLayers[layer].setActivation(new_act);
     this.setState(prevState => {
       return {
@@ -116,10 +137,10 @@ unhideModelPanel = () => {
     })
   }
 
-  doSetWeightInit(layer, new_weight){
+  doSetWeightInit(layer, new_weight) {
     let new_network = new network();
     new_network.copy(this.state.network);
-    
+
     new_network.arrLayers[layer].setWeightInit(new_weight);
     this.setState(prevState => {
       return {
@@ -128,10 +149,10 @@ unhideModelPanel = () => {
     })
   }
 
-  doSetNumNodes = (layer, new_num) =>{
+  doSetNumNodes = (layer, new_num) => {
     let new_network = new network();
     new_network.copy(this.state.network);
-    
+
     new_network.arrLayers[layer].setNumNodes(new_num);
     this.setState(prevState => {
       return {
@@ -146,7 +167,7 @@ unhideModelPanel = () => {
         <button onClick={() => this.doSetWeightInit(0, "testInit")}>test setInit</button> */}
         <button onClick={() => this.state.network.reportContent()}>Report Network</button>
         {/* <NetworkGraph appState={this.state}/> */}
-        <ModelPanel appState={this.state}/>
+        <ModelPanel appState={this.state} />
         <JSide appState={this.state} />
       </div>
     );

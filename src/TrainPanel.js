@@ -6,11 +6,16 @@ class TrainPanel extends Component {
         this.state = {
         };
 
-        this.handleChange = this.handleChange.bind(this);
+        this.handleEpochChange = this.handleEpochChange.bind(this);
+        this.handleBatchChange = this.handleBatchChange.bind(this);
     }
 
-    handleChange(event) {
-        this.setState({ value: event.target.value });
+    handleEpochChange(event) {
+        this.props.appState.doSetEpochs(event.target.value)
+    }
+
+    handleBatchChange(event) {
+        this.props.appState.doSetBatchSize(event.target.value)
     }
 
     render() {
@@ -19,8 +24,22 @@ class TrainPanel extends Component {
                 <br />
                 <Form>
                     <Form.Group controlId="formBasicRange">
-                        <Form.Label>Epochs</Form.Label>
-                        <Form.Control type="range" onChange={this.handleChange} />
+                        <Form.Label>Epochs: {this.props.appState.network.epochs}</Form.Label>
+                        <Form.Control type="range"
+                            onChange={this.handleEpochChange}
+                            max="500" 
+                            value={this.props.appState.network.epochs}
+                            />
+                    </Form.Group>
+                </Form>
+                <Form>
+                    <Form.Group controlId="formBasicRange">
+                        <Form.Label>Batch Size: {this.props.appState.network.batchSize}</Form.Label>
+                        <Form.Control type="range"
+                            onChange={this.handleBatchChange}
+                            max="256"
+                            step="64" value={this.props.appState.network.batchSize}
+                        />
                     </Form.Group>
                 </Form>
             </div>
