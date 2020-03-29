@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Aria/precache-manifest.ac4f896429e9ae890444607888de9a62.js"
+  "/Aria/precache-manifest.b87d26f4c887604a5728c28b1d197aed.js"
 );
 
 self.addEventListener('message', (event) => {
