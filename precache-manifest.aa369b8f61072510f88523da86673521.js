@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "16a9a55f8454acddb7cad1877fa7749b",
+    "revision": "ea6e73c3b5a1f01f3e5480650b83979a",
     "url": "/Neuralize/index.html"
   },
   {
-    "revision": "ea9ae4b8dd2535109300",
+    "revision": "e05965cce5e699690826",
     "url": "/Neuralize/static/css/2.7eade81e.chunk.css"
   },
   {
-    "revision": "699f709fe34145ae92d0",
-    "url": "/Neuralize/static/css/main.0c901862.chunk.css"
+    "revision": "c2d119b28d5e8191dcf9",
+    "url": "/Neuralize/static/css/main.3c2a6d77.chunk.css"
   },
   {
-    "revision": "ea9ae4b8dd2535109300",
-    "url": "/Neuralize/static/js/2.1267eae0.chunk.js"
+    "revision": "e05965cce5e699690826",
+    "url": "/Neuralize/static/js/2.a7ecddac.chunk.js"
   },
   {
     "revision": "5ac48c47bb3912b14c2d8de4f56d5ae8",
-    "url": "/Neuralize/static/js/2.1267eae0.chunk.js.LICENSE.txt"
+    "url": "/Neuralize/static/js/2.a7ecddac.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "699f709fe34145ae92d0",
-    "url": "/Neuralize/static/js/main.e71dcc8c.chunk.js"
+    "revision": "c2d119b28d5e8191dcf9",
+    "url": "/Neuralize/static/js/main.a77bfddb.chunk.js"
   },
   {
     "revision": "c1fea023b4fb4971dc73",
