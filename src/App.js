@@ -3,14 +3,15 @@ import ReactBootstrap from 'react-bootstrap';
 import logo from './logo.svg';
 import './App.css';
 import JNav from "./JNav.js";
-import network from "./kerasCode.js";
+import {network, layer} from "./kerasCode.js";
+
 
 class App extends Component {
 constructor(props){
   super(props);
   this.state = {
     network: new network(),
-    addLayer: () => this.addLayer(), // pass to buildPanel, to call as needed
+    doAddLayer: () => this.doAddLayer(), // pass to buildPanel, to call as needed
   }
 }
 
@@ -18,12 +19,12 @@ constructor(props){
     return (
       <div class="wrapper">
         <JMain />
-        <JNav {...this.state} />
+        <JNav  {...this.state} />
       </div>
     );
   }
 
-  addLayer() { // TODO
+  doAddLayer() { // TODO
     const network = this.state.network;
     alert("Added Layer!");
   }

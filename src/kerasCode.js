@@ -1,6 +1,4 @@
-
-
-class network {
+export class network {
 
     constructor() {
         this.arrLayers = [];
@@ -26,12 +24,16 @@ class network {
         this.initializer = newInit;
     }
 
+    addLayer(newLayer) {
+        this.arrLayers.push(newLayer);
+    }
+
 }
 
-class layer {
+export class layer {
     constructor(numNodes, activation, isFirstLayer, isLastLayer, layerID) {
         this.numNodes = numNodes; //temporary
-        this.activation = "relu"; //default
+        this.activation = activation; //default
         this.isFirstLayer = isFirstLayer;
         this.isLastLayer = isLastLayer;
         this.layerID = layerID;
@@ -42,7 +44,8 @@ class layer {
     set setActivation(newActivation) {
         this.activation = newActivation;
     }
-}
+} 
+
 let kerasCode = new Map();
 kerasCode.set("beginModel", "model = Sequential()");
 kerasCode.set("addLayer", "model.add(Dense(");
@@ -63,7 +66,7 @@ function turntoString(array, network) {
     for (let layer of array) {
         code += kerasCode.get("addLayer");
         code += layer.numNodes + ", ";
-        if(layer.isFirstLayer == true) {
+        if(layer.isFirstLayer === true) {
             code += kerasCode.get("input_dim") + layer.numNodes + ", ";
         }
         code += getActivationCode(layer);
@@ -85,4 +88,4 @@ function turntoString(array, network) {
 // array.push(temp3);
 
 // let theNetwork = new network(array,  "binary_crossentropy", "adam", "accuracy");
-// console.log(turntoString(array, theNetwork));
+// console.log(turntoString(array, theNetwork));// array.push(temp3);

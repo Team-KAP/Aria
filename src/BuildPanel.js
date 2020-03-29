@@ -10,12 +10,12 @@ class BuildPanel extends Component {
             value: 0,
             setValue: 0,
             currentActivation: "<select activation function>",
-            currentInit: "<select weight initializer",
+            currentInit: "<select weight initializer>",
             activations: [
                 "<select activation function>", "relu", "tanh", "sigmoid", "softmax"
             ],
             inits: [
-                "<select weight initializer", "zeros", "ones", "normal", "uniform", "glorot uniform", "he uniform"
+                "<select weight initializer>", "zeros", "ones", "normal", "uniform", "glorot uniform", "he uniform"
             ]
         }
     }
@@ -23,6 +23,7 @@ class BuildPanel extends Component {
     render() {
         return (
             <div>
+                <br/>
                 <Dropdown>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">Activation</Dropdown.Toggle>
                     <Dropdown.Menu>

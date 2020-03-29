@@ -9,9 +9,9 @@ class LearnPanel extends Component {
             input: 12,
             value: 0,
             setValue: 0,
-            currentOpti: "<select activation function>",
+            currentOpti: "<select optimizer>",
             optimizers: [
-                "<select optimizer>", "relu", "tanh", "sigmoid", "softmax"
+                "<select optimizer>", "SGD", "RMSProp", "Adadelta", "Adam"
             ],
         }
     }
