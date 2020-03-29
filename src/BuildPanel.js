@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Dropdown from 'react-bootstrap/Dropdown'
+import Button from 'react-bootstrap/Button'
 
 class BuildPanel extends Component {
     constructor(props) {
@@ -23,6 +24,9 @@ class BuildPanel extends Component {
     render() {
         return (
             <div>
+                <br />
+                <Button variant="primary">Add Layer</Button>{' '}
+                <br />
                 <br />
                 <Dropdown>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">Activation</Dropdown.Toggle>
