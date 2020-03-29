@@ -8,12 +8,13 @@ export class network {
 
 
     copy(old_network){
-        console.log("keys of old:");
-        console.log(Object.keys(old_network));
+        // console.log("keys of old:");
+        // console.log(Object.keys(old_network));
         this.arrLayers = old_network.arrLayers;
         this.optimizer = old_network.optimizer;
         this.metrics = old_network.metrics;
         this.loss = old_network.loss;
+        this.reportContent();
     }
 
     setOptimizer(newOptimizer){

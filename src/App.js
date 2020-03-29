@@ -53,6 +53,8 @@ class App extends Component {
         network: newNetwork
       }
     })
+
+
   }
 
   render() {
@@ -64,7 +66,7 @@ class App extends Component {
         </p>
 
         {/* <button onClick={() => this.changeOptimizer()}>Hi</button> */}
-        <ModelPanel />
+        <ModelPanel appState={this.state}/>
         <JSide appState={this.state} />
       </div>
     );
