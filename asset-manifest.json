@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/Aria/static/css/main.1896a74b.chunk.css",
-    "main.js": "/Aria/static/js/main.728c18c1.chunk.js",
-    "main.js.map": "/Aria/static/js/main.728c18c1.chunk.js.map",
+    "main.css": "/Aria/static/css/main.cc8fe616.chunk.css",
+    "main.js": "/Aria/static/js/main.bbbc1b06.chunk.js",
+    "main.js.map": "/Aria/static/js/main.bbbc1b06.chunk.js.map",
     "runtime-main.js": "/Aria/static/js/runtime-main.c99fc22b.js",
     "runtime-main.js.map": "/Aria/static/js/runtime-main.c99fc22b.js.map",
     "static/css/2.b5efd36a.chunk.css": "/Aria/static/css/2.b5efd36a.chunk.css",
     "static/js/2.a8342b98.chunk.js": "/Aria/static/js/2.a8342b98.chunk.js",
     "static/js/2.a8342b98.chunk.js.map": "/Aria/static/js/2.a8342b98.chunk.js.map",
     "index.html": "/Aria/index.html",
-    "precache-manifest.b87d26f4c887604a5728c28b1d197aed.js": "/Aria/precache-manifest.b87d26f4c887604a5728c28b1d197aed.js",
+    "precache-manifest.4ddbc11122d83a8be6f4fbc84b1afb38.js": "/Aria/precache-manifest.4ddbc11122d83a8be6f4fbc84b1afb38.js",
     "service-worker.js": "/Aria/service-worker.js",
     "static/css/2.b5efd36a.chunk.css.map": "/Aria/static/css/2.b5efd36a.chunk.css.map",
-    "static/css/main.1896a74b.chunk.css.map": "/Aria/static/css/main.1896a74b.chunk.css.map",
+    "static/css/main.cc8fe616.chunk.css.map": "/Aria/static/css/main.cc8fe616.chunk.css.map",
     "static/js/2.a8342b98.chunk.js.LICENSE.txt": "/Aria/static/js/2.a8342b98.chunk.js.LICENSE.txt",
     "static/media/logo.svg": "/Aria/static/media/logo.ee7cd8ed.svg"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.c99fc22b.js",
     "static/css/2.b5efd36a.chunk.css",
     "static/js/2.a8342b98.chunk.js",
-    "static/css/main.1896a74b.chunk.css",
-    "static/js/main.728c18c1.chunk.js"
+    "static/css/main.cc8fe616.chunk.css",
+    "static/js/main.bbbc1b06.chunk.js"
   ]
 }
