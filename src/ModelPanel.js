@@ -163,7 +163,7 @@ export class ModelPanel extends Component {
             return (
                 <div id="content">
                     <h1>Model</h1>
-                    <div style={{ backgroundColor: "#333", height: "90%" }}>                   
+                    <div style={{ height: "90%" }}>                   
                         {this.getSigma(g)}
                     </div>
                 </div>

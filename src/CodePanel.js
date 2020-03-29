@@ -16,7 +16,7 @@ class CodePanel extends Component {
         this.state.kerasCode.set("losser", "loss=")
         this.state.kerasCode.set("optimizer", "optimizer=");
         this.state.kerasCode.set("metrics", "metrics=[");
-        this.state.kerasCode.set("modelfit", "model.fit(x=None, y=None, epochs=")
+        this.state.kerasCode.set("modelfit", "model.fit(x=x_train, y=y_ytrain, epochs=")
         this.state.kerasCode.set("batch", "batch_size=")
         this.state.kerasCode.set("learnRate", "learning_rate=");
         this.state.kerasCode.set("network_end", "))");

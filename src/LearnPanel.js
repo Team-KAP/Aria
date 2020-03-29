@@ -60,6 +60,19 @@ class LearnPanel extends Component {
                         value={this.props.appState.network.learnRate} />
                     </Form.Group>
                 </Form>
+                <Form>
+                    {['checkbox'].map((type) => (
+                        <div key={'learning-rate-decay'} className="mb-3">
+                        <Form.Check 
+                            type={type}
+                            id={`learning rate checkbox`}
+                            label={`Learning Rate Decay`}
+                            onChange={(e)=>alert("pressed")}
+                            
+                        />
+                        </div>
+                    ))}
+                </Form>
             </div>
         );
     }
