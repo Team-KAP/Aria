@@ -25,7 +25,10 @@ class BuildPanel extends Component {
         return (
             <div>
                 <br />
-                <Button variant="primary">Add Layer</Button>{' '}
+                <Button variant="primary" onClick={()=>{
+                    console.log("adding layer");
+                    this.props.appState.doAddLayer();
+                }}>Add Layer</Button>{' '}
                 <br />
                 <br />
                 <Dropdown>
@@ -38,11 +41,6 @@ class BuildPanel extends Component {
                                     this.setState({currentActivation: activation});
                                     // this.props.appState.doSetOptimizer(activation);
                                 }}
-                                    // onClick={() => {
-                                    //     this.setState({ currentActivation: activation });
-                                    //     this.props.appState.doSetActivation(activation);
-                                    // }}
-
                                 >{activation}</Dropdown.Item>
                             )
                         })}

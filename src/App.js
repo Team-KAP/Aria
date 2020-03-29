@@ -13,10 +13,7 @@ class App extends Component {
     this.state = {
       network: new network(),
       doAddLayer: () => this.doAddLayer(), // pass to buildPanel, to call as needed
-      doSetOptimizer: (new_opt) => this.doSetOptimizer(new_opt),
-      doSetActivation: new_act => this.doSetActivation(new_act),
-      doSetInitializer: new_init => this.doSetInitializer(new_init),
-
+      doSetOptimizer: new_opt => this.doSetOptimizer(new_opt),
 
     }
   }
@@ -41,6 +38,23 @@ class App extends Component {
     // console.log("finished");
   }
 
+  doAddLayer = () => {
+    let new_layer = new layer(10, 'relu', false, false);
+    const newNetwork = new network();
+    newNetwork.copy(this.state.network);
+
+    if (newNetwork.arrLayers.length === 0) {
+      new_layer.isFirstLayer = true;
+    }
+    newNetwork.addLayer(new_layer);
+
+    this.setState(prevState => {
+      return {
+        network: newNetwork
+      }
+    })
+  }
+
   render() {
     return (
       <div class="wrapper">
@@ -54,12 +68,6 @@ class App extends Component {
         <JSide appState={this.state} />
       </div>
     );
-  }
-
-  // TODO
-  doAddLayer() {
-    const network = this.state.network;
-    alert("Added Layer!");
   }
 
 }

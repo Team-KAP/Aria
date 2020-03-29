@@ -39,9 +39,9 @@ export class network {
     // setInit(newInit) {
     //     this.initializer = newInit;
     // }
-    // addLayer(newLayer) {
-    //     this.arrLayers.push(newLayer);
-    // }
+    addLayer(newLayer) {
+        this.arrLayers.push(newLayer);
+    }
 
     // this.doSomething = function () {
     //     console.log(1);
@@ -54,7 +54,7 @@ export class layer {
         this.numNodes = numNodes; //temporary
         this.activation = activation; //default
         this.isFirstLayer = isFirstLayer;
-        this.isLastLayer = isLastLayer;
+        //this.isLastLayer = isLastLayer;
     }
     setNumNodes(newNode) {
         this.numNodes = newNode;
@@ -64,9 +64,6 @@ export class layer {
     }
     setisFirstLayer(newBool) {
         this.isFirstLayer = newBool;
-    }
-    setisLastLayer(newBool) {
-        this.isLastLayer = newBool;
     }
 }
 
