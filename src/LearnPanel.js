@@ -19,14 +19,18 @@ class LearnPanel extends Component {
     render() {
         return (
             <div>
-                <p>test</p>
+                {/* <button onClick={() => this.props.appState.doSetOptimizer()}>Hi</button> */}
+                <br/>
                 <Dropdown>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">Optimizer</Dropdown.Toggle>
                     <Dropdown.Menu>
                         {this.state.optimizers.map(opti => {
                             return(
                                 <Dropdown.Item as="button" 
-                                onClick={() => this.setState({currentOpti: opti})}
+                                onClick={() => {
+                                    this.setState({currentOpti: opti});
+                                    this.props.appState.doSetOptimizer(opti);
+                                }}
                                     >{opti}</Dropdown.Item>
                             )
                         })}                        

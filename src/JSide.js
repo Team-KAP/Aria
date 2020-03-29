@@ -4,8 +4,9 @@ import Tab from 'react-bootstrap/Tab';
 import BuildPanel from "./BuildPanel.js"
 import LearnPanel from "./LearnPanel.js"
 import CodePanel from "./CodePanel.js";
+import TrainPanel from "./TrainPanel.js";
 import "./JSide.css"
-class JNav extends Component {
+class JSide extends Component {
   constructor(props) {
     super(props);
     //set state goes here
@@ -18,7 +19,7 @@ class JNav extends Component {
           <Tabs defaultActiveKey="build" id="settings">
             <Tab eventKey="build" title="Build">
               <div>
-                <BuildPanel {...this.props} />
+                <BuildPanel appState={this.props.appState} />
               </div>
             </Tab>
             <Tab eventKey="learn" title="Learn">
@@ -27,10 +28,14 @@ class JNav extends Component {
               </div>
             </Tab>
             <Tab eventKey="train" title="Train">
-              <p>lul</p>
+              <div>
+                <TrainPanel {...this.props} />
+              </div>
             </Tab>
           </Tabs>
         </div>
+
+        {/* <button onClick={() => this.props.doSetOpt()}>Hi</button> */}
 
         <CodePanel />
       </div>
@@ -38,7 +43,7 @@ class JNav extends Component {
   }
 }
 
-export default JNav;
+export default JSide;
 
 
 

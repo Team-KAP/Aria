@@ -1,50 +1,77 @@
 export class network {
-
     constructor() {
         this.arrLayers = [];
-        this.optimizer = null;
-        this.metrics = null;
-        this.loss = null;
-        this.initializer = null;
+        this.optimizer = 0;
+        this.metrics = 0;
+        this.loss = 0;
+        // this.initializer = 0;
     }
 
-    set setOptimizer(newOptimizer) {
+
+    copy(old_network){
+        console.log("keys of old:");
+        console.log(Object.keys(old_network));
+        this.arrLayers = old_network.arrLayers;
+        this.optimizer = old_network.optimizer;
+        this.metrics = old_network.metrics;
+        this.loss = old_network.loss;
+        this.initializer = old_network.initializer;
+    }
+
+    setOptimizer(newOptimizer){
         this.optimizer = newOptimizer;
     }
-    
-    set setMetrics(newMetrics) {
-        this.metrics = newMetrics;
-    } 
 
-    set setLoss(newLoss) {
-        this.loss = newLoss; 
+    reportContent() {
+        console.log(this.arrLayers);
+        console.log(this.optimizer);
+        console.log(this.metrics);
+        console.log(this.loss);
+        // console.log(this.initializer);
+        console.log(" ");
     }
 
-    set setInit(newInit) {
-        this.initializer = newInit;
-    }
+    // setMetrics(newMetrics) {
+    //     this.metrics = newMetrics;
+    // } 
 
-    addLayer(newLayer) {
-        this.arrLayers.push(newLayer);
-    }
+    // setLoss(newLoss) {
+    //     this.loss = newLoss; 
+    // }
+
+    // setInit(newInit) {
+    //     this.initializer = newInit;
+    // }
+    // addLayer(newLayer) {
+    //     this.arrLayers.push(newLayer);
+    // }
+
+    // this.doSomething = function () {
+    //     console.log(1);
+    // }
 
 }
 
 export class layer {
-    constructor(numNodes, activation, isFirstLayer, isLastLayer, layerID) {
-        this.numNodes = numNodes; //temporary
-        this.activation = activation; //default
-        this.isFirstLayer = isFirstLayer;
-        this.isLastLayer = isLastLayer;
-        this.layerID = layerID;
+    constructor() {
+        this.numNodes = null //temporary
+        this.activation = null //default
+        this.isFirstLayer = null
+        this.isLastLayer = null
     }
-    set setNumNodes(newNode) {
+    setNumNodes(newNode) {
         this.numNodes = newNode;
     }
-    set setActivation(newActivation) {
+    setActivation(newActivation) {
         this.activation = newActivation;
     }
-} 
+    setisFirstLayer(newBool) {
+        this.isFirstLayer = newBool;
+    }
+    setisLastLayer(newBool) {
+        this.isLastLayer = newBool;
+    }
+}
 
 let kerasCode = new Map();
 kerasCode.set("beginModel", "model = Sequential()");
@@ -60,32 +87,31 @@ function getActivationCode(layer) {
     return 'activation=' + "'" + layer.activation + "'";
 }
 
-function turntoString(array, network) {
+function turntoString(network) {
     var code = "";
     code += kerasCode.get("beginModel") + "\n";
-    for (let layer of array) {
+    for (let layer of network.arrLayers) {
         code += kerasCode.get("addLayer");
         code += layer.numNodes + ", ";
-        if(layer.isFirstLayer === true) {
+        if (layer.isFirstLayer === true) {
             code += kerasCode.get("input_dim") + layer.numNodes + ", ";
         }
-        code += getActivationCode(layer);
+        if (layer.activation != null) {
+            code += getActivationCode(layer);
+        }
         code += kerasCode.get("network_end") + "\n";
     }
-    
-    console.log(network.loss)
+
     code += kerasCode.get("compile") + kerasCode.get("losser") + "'" + network.loss + "'" + ", " + kerasCode.get("optimizer") + "'" + network.optimizer +
-        "'" + ", " + kerasCode.get("metrics") + "'" + network.metrics + "'" +"])"
+        "'" + ", " + kerasCode.get("metrics") + "'" + network.metrics + "'" + "])"
     return code;
 }
 
 // array = []
-// temp = new layer(10, 'relu', true, false);
-// temp1 = new layer(64, 'relu', false, false);
+// temp = new layer();
+// let networks = new network()
+// networks.optimizer = "adam";
 // temp3 = new layer(8, 'softmax', false, true);
-// array.push(temp);
-// array.push(temp1);
-// array.push(temp3);
+// networks.arrLayers.push(temp3)
+// turntoString(networks);
 
-// let theNetwork = new network(array,  "binary_crossentropy", "adam", "accuracy");
-// console.log(turntoString(array, theNetwork));// array.push(temp3);

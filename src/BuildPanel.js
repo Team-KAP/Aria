@@ -23,37 +23,48 @@ class BuildPanel extends Component {
     render() {
         return (
             <div>
-                <br/>
+                <br />
                 <Dropdown>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">Activation</Dropdown.Toggle>
                     <Dropdown.Menu>
                         {this.state.activations.map(activation => {
-                            return(
-                                <Dropdown.Item as="button" 
-                                onClick={() => this.setState({currentActivation: activation})}
-                                    >{activation}</Dropdown.Item>
+                            return (
+                                <Dropdown.Item as="button"
+                                onClick={() => {
+                                    this.setState({currentActivation: activation});
+                                    // this.props.appState.doSetOptimizer(activation);
+                                }}
+                                    // onClick={() => {
+                                    //     this.setState({ currentActivation: activation });
+                                    //     this.props.appState.doSetActivation(activation);
+                                    // }}
+
+                                >{activation}</Dropdown.Item>
                             )
-                        })}                        
+                        })}
                     </Dropdown.Menu>
                 </Dropdown>
-                <br/>
-                        <p>{this.state.currentActivation}</p>
-                <br/>
+                <br />
+                <p>{this.state.currentActivation}</p>
+                <br />
                 <Dropdown>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">Weight Initializer</Dropdown.Toggle>
                     <Dropdown.Menu>
                         {this.state.inits.map(init => {
-                            return(
-                                <Dropdown.Item as="button" 
-                                onClick={() => this.setState({currentInit: init})}>{init}</Dropdown.Item>
+                            return (
+                                <Dropdown.Item as="button"
+                                    onClick={() => {
+                                        this.setState({ currentInit: init });
+                                        // this.props.appState.doSetInitializer(init);
+                                    }}>{init}</Dropdown.Item>
                             )
                         })
-                    }
+                        }
                     </Dropdown.Menu>
                 </Dropdown>
-                <br/>
-                        <p>{this.state.currentInit}</p>
-                <br/>
+                <br />
+                <p>{this.state.currentInit}</p>
+                <br />
             </div>
         );
     }
