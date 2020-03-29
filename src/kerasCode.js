@@ -4,7 +4,6 @@ export class network {
         this.optimizer = 0;
         this.metrics = 0;
         this.loss = 0;
-        // this.initializer = 0;
     }
 
 
@@ -15,7 +14,6 @@ export class network {
         this.optimizer = old_network.optimizer;
         this.metrics = old_network.metrics;
         this.loss = old_network.loss;
-        this.initializer = old_network.initializer;
     }
 
     setOptimizer(newOptimizer){
@@ -27,7 +25,6 @@ export class network {
         console.log(this.optimizer);
         console.log(this.metrics);
         console.log(this.loss);
-        // console.log(this.initializer);
         console.log(" ");
     }
 

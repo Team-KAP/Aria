@@ -10,7 +10,6 @@ function getMaxNodeCount(arrLayers) {
         if (nodeCount > max) max = nodeCount;
     }
     return max;
-    return 6;
 }
 
 function layersToGraph(arrLayers) {
@@ -27,7 +26,7 @@ function layersToGraph(arrLayers) {
         const layer = arrLayers[i];
         const nodeCount = layer.numNodes;
         
-        const x = i * 0.2; //(maxNodeCount/50); 
+        const x = i * 0.2;
         const vgap = 0.15 - nodeCount/200;  
         const renderHeight = (nodeCount-1) * vgap;
         const initY = (2.0 - renderHeight)/2;
