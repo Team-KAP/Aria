@@ -105,43 +105,44 @@ function writer(g) { // TODO
 //     return arrLayers;
 // }
 
-let onClickNodeFunc = (e) => {
-    const node = e.data.node;
-    const id = node.id;
-    const SELECTED_LAYER = id.substring(0,1);
-    this.props.appState.doSelectLayer(SELECTED_LAYER);
-}
-
-function getSigma(data) {
-    // console.log("rendering using data: ");
-    // console.log(data);
-    let s = <Sigma 
-        graph={data} 
-        style={{ height: "100%" }}
-        onClickNode={onClickNodeFunc}
-        settings={{
-            maxNodeSize: 15, maxEdgeSize: 0.3,
-            clone: false, 
-            enableHovering: true,
-            defaultNodeColor: "#fff",
-            rescaleIgnoreSize: false, // TODO change?
-        }}>
-    </Sigma>
-
-    //writer(data);
-
-    // let s2 = 
-    // <Sigma>
-    //     <LoadJSON url="/graph.json">
-
-    //     </LoadJSON>
-    // </Sigma>
-    return s;
-}
-
 export class ModelPanel extends Component {
     constructor(props) {
         super(props);
+    }
+
+    onClickNodeFunc = (e) => {
+        const node = e.data.node;
+        const id = node.id;
+        const SELECTED_LAYER = id.substring(0,1);
+        this.props.appState.doSelectLayer(SELECTED_LAYER);
+        alert("selected layer: " + SELECTED_LAYER);
+    }
+    
+    getSigma(data) {
+        // console.log("rendering using data: ");
+        // console.log(data);
+        let s = <Sigma 
+            graph={data} 
+            style={{ height: "100%" }}
+            onClickNode={this.onClickNodeFunc}
+            settings={{
+                maxNodeSize: 15, maxEdgeSize: 0.3,
+                clone: false, 
+                enableHovering: true,
+                defaultNodeColor: "#fff",
+                rescaleIgnoreSize: false, // TODO change?
+            }}>
+        </Sigma>
+    
+        //writer(data);
+    
+        // let s2 = 
+        // <Sigma>
+        //     <LoadJSON url="/graph.json">
+    
+        //     </LoadJSON>
+        // </Sigma>
+        return s;
     }
 
     render() {
@@ -164,7 +165,7 @@ export class ModelPanel extends Component {
                 <div id="content">
                     <h1>Model</h1>
                     <div style={{ backgroundColor: "#333", height: "90%" }}>                   
-                        {getSigma(g)}
+                        {this.getSigma(g)}
                     </div>
                 </div>
 
@@ -176,5 +177,7 @@ export class ModelPanel extends Component {
         }
 
     }
+
+    
 }
 
