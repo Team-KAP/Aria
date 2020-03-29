@@ -158,7 +158,7 @@ export class ModelPanel extends Component {
         // console.log(g);
         // console.log(JSON.stringify(g));
 
-        if (!this.props.appState.hideModelPanel) {
+        if (!this.props.appState.hiddenModelPanel) {
                 
             return (
                 <div id="content">

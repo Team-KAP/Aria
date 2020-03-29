@@ -13,7 +13,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hideModelPanel: false,
+      hiddenModelPanel: false,
+      hideModelPanel: () => this.hideModelPanel(),
       unhideModelPanel: () => this.unhideModelPanel(),
       network: new network(),
       selectedLayer: 0,
@@ -51,11 +52,18 @@ class App extends Component {
 
   }
 
+hideModelPanel = () => {
+  this.setState(prevState => {
+    return {
+      hiddenModelPanel: true,
+    }
+  })
+}
 
 unhideModelPanel = () => {
   this.setState(prevState => {
     return {
-      hideModelPanel: false,
+      hiddenModelPanel: false,
     }
   })
 }
@@ -92,11 +100,12 @@ unhideModelPanel = () => {
 
     this.setState(prevState => {
       return {
-        hideModelPanel: true,
         network: newNetwork,
         loadable: true
       }
     })
+
+    this.hideModelPanel();
   }
   
 /**
