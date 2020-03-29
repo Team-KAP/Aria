@@ -52,8 +52,12 @@ class LearnPanel extends Component {
                 <br/>
                 <Form>
                     <Form.Group controlId="formBasicRange">
-                        <Form.Label>Learning rate of the network :{this.props.appState.loadable ? this.props.appState.network.learnRate : ""}</Form.Label>
-                        <Form.Control type="range" onChange={this.handleChange} />
+                        <Form.Label>Learning rate of the network: {this.props.appState.loadable ? this.props.appState.network.learnRate : ""}</Form.Label>
+                        <Form.Control type="range" 
+                        onChange={this.handleChange} 
+                        max="0.1" 
+                        step="0.001"
+                        value={this.props.appState.network.learnRate} />
                     </Form.Group>
                 </Form>
             </div>

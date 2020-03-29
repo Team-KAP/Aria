@@ -45,7 +45,10 @@ class BuildPanel extends Component {
                 <Form>
                     <Form.Group controlId="formBasicRange">
                         <Form.Label>Number of nodes in layer : {this.props.appState.loadable ? this.props.appState.network.arrLayers[this.props.appState.selectedLayer].numNodes : ""}</Form.Label>
-                        <Form.Control type="range" onChange={this.handleChange} />
+                        <Form.Control type="range" 
+                        onChange={this.handleChange} 
+                        max="10"
+                        value={this.props.appState.loadable ? this.props.appState.network.arrLayers[this.props.appState.selectedLayer].numNodes : 0}/>
                     </Form.Group>
                 </Form>
 

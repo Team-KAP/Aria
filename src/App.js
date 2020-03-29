@@ -17,6 +17,7 @@ class App extends Component {
       network: new network(),
       selectedLayer: 0,
       loadable: false,
+      doSelectLayer: () => this.doSelectLayer(), // pass to modelPanel
       doAddLayer: () => this.doAddLayer(), // pass to buildPanel, to call as needed
       doSetOptimizer: new_opt => this.doSetOptimizer(new_opt),
       doSetActivation: (layer, new_act) => this.doSetActivation(layer, new_act),
@@ -26,6 +27,15 @@ class App extends Component {
     }
   }
   
+  doSelectLayer = selected_layer => {
+    this.setState(prevState => {
+      return {
+        selectedLayer: selected_layer
+      }
+    })
+
+  }
+
 
   doSetLearnRate = new_learn => {
     let new_network = new network();

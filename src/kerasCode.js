@@ -5,6 +5,7 @@ export class network {
         this.learnRate = 0;
         this.loss = 0;
         this.epochs = 0;
+        this.batchSize = 0;
     }
 
 
@@ -16,6 +17,7 @@ export class network {
         this.learnRate = old_network.learnRate;
         this.loss = old_network.loss;
         this.epochs = old_network.loss;
+        this.batchSize = old_network.batchSize;
         this.reportContent();
     }
 
@@ -30,9 +32,13 @@ export class network {
         console.log("metrics: " + String(this.learnRate));
         console.log("loss: " + String(this.loss));
         console.log("epochs: " + String(this.epochs));
+        console.log("Batch Size: " + String(this.batchSize));
         console.log(" ");
     }
 
+     setBatchSize(newBatch) {
+         this.batchSize = newBatch;
+     }
      setLearnRate(newLearn) {
          this.learnRate = newLearn;
      } 

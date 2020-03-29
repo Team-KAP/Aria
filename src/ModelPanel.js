@@ -105,7 +105,12 @@ function writer(g) { // TODO
 //     return arrLayers;
 // }
 
-let onClickNodeFunc = (e) => {console.log(e)}
+let onClickNodeFunc = (e) => {
+    const node = e.data.node;
+    const id = node.id;
+    const SELECTED_LAYER = id.substring(0,1);
+    this.props.appState.doSelectLayer(SELECTED_LAYER);
+}
 
 function getSigma(data) {
     // console.log("rendering using data: ");
