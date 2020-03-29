@@ -4,7 +4,8 @@ import logo from './logo.svg';
 import './App.css';
 import JSide from "./JSide.js";
 import { network, layer } from "./kerasCode.js";
-import ModelPanel from "./ModelPanel.js"
+import {ModelPanel} from "./ModelPanel.js"
+//import {NetworkGraph} from "./ModelPanel.js"
 
 
 class App extends Component {
@@ -66,6 +67,7 @@ class App extends Component {
         </p>
 
         {/* <button onClick={() => this.changeOptimizer()}>Hi</button> */}
+        {/* <NetworkGraph appState={this.state}/> */}
         <ModelPanel appState={this.state}/>
         <JSide appState={this.state} />
       </div>

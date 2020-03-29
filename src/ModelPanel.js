@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+
+//import { Sigma, RandomizeNodePositions, RelativeSize } from 'react-sigma';
 // @ts-ignore 
-import { Sigma, RandomizeNodePositions, RelativeSize } from 'react-sigma';
+import { Sigma, RelativeSize, RandomizeNodePositions, ForceAtlas2, EdgeShapes, NodeShapes, Graph } from 'react-sigma';
+// @ts-ignore 
+//import {sigma} from 'sigma'
+
 import { layer } from './kerasCode.js'
 
 function getMaxNodeCount(arrLayers) {
@@ -14,24 +19,24 @@ function getMaxNodeCount(arrLayers) {
 
 function layersToGraph(arrLayers) {
 
-    const maxNodeCount = getMaxNodeCount(arrLayers);
+    let maxNodeCount = getMaxNodeCount(arrLayers);
 
-    const graph = {};
-    const nodes = [];
-    const edges = [];
+    let graph = {};
+    let nodes = [];
+    let edges = [];
     let prevLayerNodes = []; // cache
 
     for (let i = 0; i < arrLayers.length; i++) {
 
-        const layer = arrLayers[i];
-        const nodeCount = layer.numNodes;
+        let layer = arrLayers[i];
+        let nodeCount = layer.numNodes;
 
-        const x = i * 0.2;
-        const vgap = 0.15 - nodeCount / 200;
-        const renderHeight = (nodeCount - 1) * vgap;
-        const initY = (2.0 - renderHeight) / 2;
+        let x = i * 0.2;
+        let vgap = 0.15 - nodeCount / 200;
+        let renderHeight = (nodeCount - 1) * vgap;
+        let initY = (2.0 - renderHeight) / 2;
 
-        const thisLayerNodes = [];
+        let thisLayerNodes = [];
 
         for (let j = 0; j < nodeCount; j++) {
 
@@ -39,12 +44,12 @@ function layersToGraph(arrLayers) {
             let id = i + "," + j;
             let size = 1;
 
-            const node = { x: x, y: y, size: size, id: id };
+            let node = { x: x, y: y, size: size, id: id };
             nodes.push(node);
             thisLayerNodes.push(node);
         }
 
-        if (prevLayerNodes) {
+        if (prevLayerNodes.length > 0) { // TODO check this??
             connect(prevLayerNodes, thisLayerNodes, edges);
         }
 
@@ -62,19 +67,19 @@ function connect(prevLayerNodes, thisLayerNodes, edges) {
 
     for (let i = 0; i < prevLayerNodes.length; i++) {
 
-        const prevNode = prevLayerNodes[i];
+        let prevNode = prevLayerNodes[i];
         let source = prevNode.id;
 
         for (let j = 0; j < thisLayerNodes.length; j++) {
 
-            const thisNode = thisLayerNodes[j];
+            let thisNode = thisLayerNodes[j];
 
             let id = "e_" + prevNode.id + "," + thisNode.id;
             let target = thisNode.id;
             let size = 1 - (prevLayerNodes.length * thisLayerNodes.length) / 100;
 
-            const edge = { id: id, source: source, target: target, size: size };
-            edges.push(edge);
+            let edge = { id: id, source: source, target: target, size: size };
+            //edges.push(edge);
 
         }
     }
@@ -92,52 +97,71 @@ function genLayers() {
     return arrLayers;
 }
 
-class UpdateNodeProps extends Component {
-    componentWillReceiveProps({ sigma, nodes }) {
-        sigma.graph.nodes().forEach(n => {
-          var updated = nodes.find(e => e.id == n.id)
-          Object.assign(n, updated)
-        })
-    }
-
-    render = () => null
+function getSigma(data) {
+    console.log("rendering using data: ");
+    console.log(data);
+    let s = <Sigma 
+        graph={data} 
+        style={{ height: "100%" }}
+        settings={{
+            maxNodeSize: 15, maxEdgeSize: 0.3,
+            clone: false, 
+            defaultNodeColor: "#fff"
+        }}>
+    </Sigma>
+    return s;
 }
 
-
-
-class ModelPanel extends Component {
+export class ModelPanel extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            data: {},
+        }
     }
 
     render() {
+        
+        let r = parseInt(Math.random() * 5);
+        let preloaded = layersToGraph(genLayers().slice(0, 5));
+
         let layers = this.props.appState.network.arrLayers;
-        //let layers = genLayers();
-        console.log(layers);
         let g = layersToGraph(layers);
+
+        // console.log("preloaded");
+        // console.log(preloaded);
+        console.log("g");
         console.log(g);
 
-        // zoomMax: 0.1, 
-
-        
+        if (g.nodes.length === 0) {
+                
         return (
             <div id="content">
                 <h1>Model</h1>
-                <div style={{ backgroundColor: "#333", height: "90%" }}>
-                    <Sigma graph={g} style={{ height: "100%" }}
-                    settings={{
-                        maxNodeSize: 15, maxEdgeSize: 0.3,
-                        clone: false, defaultNodeColor: "#fff"
-                    }}>
-
-                    <UpdateNodeProps nodes={g.nodes}/>
-                </Sigma>
+                <div style={{ backgroundColor: "#333", height: "90%" }}>                   
+                    {getSigma(preloaded)}
                 </div>
             </div>
 
         );
 
+        }  else {
+
+            
+            return (
+                <div id="content">
+                    <h1>ModelTEST</h1>
+                    <div style={{ backgroundColor: "#333", height: "90%" }}>                   
+                        {getSigma(g)}
+                        {getSigma(g)}
+                    </div>
+                </div>
+    
+            );
+
+        }
+
     }
 }
 
-export default ModelPanel;
+// export default ModelPanel;

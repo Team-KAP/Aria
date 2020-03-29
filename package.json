@@ -15,7 +15,8 @@
     "react-bootstrap-slider": "^2.2.3",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "react-sigma": "^1.2.34"
+    "react-sigma": "^1.2.34",
+    "sigma": "^2.0.0-alpha32"
   },
   "scripts": {
     "start": "react-scripts start",
