@@ -1,7 +1,12 @@
    
 .codepanel {
-    background-color: #3C597F;
+    background-color: rgb(44, 44, 44);
+}
+.code {
+    background-color: rgb(44, 44, 44);
     overflow-y: auto;
     position:fixed;
     height: 300px;
+    color: white;
+    font-family: monospace;
 }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./CodePanel.css"
-import {Form} from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 class CodePanel extends Component {
     constructor(props) {
@@ -8,6 +8,8 @@ class CodePanel extends Component {
         this.state = {
             // currentCode: "model = Sequential()",
             kerasCode: new Map(),
+            lossDict: new Map(),
+            weightDict: new Map(),
         }
         this.state.kerasCode.set("beginModel", "model = Sequential()");
         this.state.kerasCode.set("addLayer", "model.add(Dense(");
@@ -20,6 +22,20 @@ class CodePanel extends Component {
         this.state.kerasCode.set("batch", "batch_size=")
         this.state.kerasCode.set("learnRate", "learning_rate=");
         this.state.kerasCode.set("network_end", "))");
+        this.state.kerasCode.set("loss", "loss=");
+        this.state.kerasCode.set("learningRateDecay", "decay=")
+        this.state.kerasCode.set("weightInit", "kernel_initializer=")
+
+        this.state.lossDict.set("Mean Squared Error", "mean_squared_error")
+        this.state.lossDict.set("Mean Absolute Error", "mean_absolute_error")
+        this.state.lossDict.set("Hinge", "hinge")
+
+        this.state.weightDict.set("zeros", "Zeroes")
+        this.state.weightDict.set("ones", "Ones")
+        this.state.weightDict.set("normal", "RandomNormal")
+        this.state.weightDict.set("uniform", "RandomUniform")
+        this.state.weightDict.set("glorot uniform", "glorot_uniform")
+        this.state.weightDict.set("he uniform", "he_normal")
     }
 
     getActivationCode(layer) {
@@ -27,8 +43,39 @@ class CodePanel extends Component {
     }
 
 
-
     doGetCode = (network) => {
+        return (<p>
+            {this.state.kerasCode.get("beginModel")} <br />
+        {network.arrLayers.map(layer => {
+            let code = "";
+            code += this.state.kerasCode.get("addLayer");
+            code += layer.numNodes + ", ";
+            if (layer.isFirstLayer === true) {
+                code += this.state.kerasCode.get("input_dim") + layer.numNodes + ", ";
+            }
+            if (layer.activation != null) {
+                code += this.getActivationCode(layer);
+            }
+
+            if(layer.weightInit != null) {
+                code += ", kernel_initializer=" + "'" + this.state.weightDict.get(layer.weightInit) + "'";
+            }
+            code += this.state.kerasCode.get("network_end");
+
+            return(<div>
+                {code}
+                </div>)
+        })}
+        {"opt=" + "optimizers." + network.optimizer + "(lr=" + network.learnRate + ", " + "decay=" + (network.learningRateDecay ? 0.01 : 0) + ", " + "momentum=0.9)"}        
+        <br/>
+        {this.state.kerasCode.get("compile") + this.state.kerasCode.get("loss") + "'" + this.state.lossDict.get(network.loss) + "'" + ", " +
+            this.state.kerasCode.get("optimizer") + "opt)" }
+            <br/>
+    {this.state.kerasCode.get("modelfit") + network.epochs + ", " + this.state.kerasCode.get("batch") + network.batchSize + this.state.kerasCode.get("network_end")}
+        </p>);
+    }
+
+    doGetCode_ = (network) => {
         var code = "";
         code += this.state.kerasCode.get("beginModel") + "\n";
         for (let layer of network.arrLayers) {
@@ -44,26 +91,29 @@ class CodePanel extends Component {
         }
 
         code += this.state.kerasCode.get("compile") + this.state.kerasCode.get("losser") + "'" + network.loss + "'" + ", " + this.state.kerasCode.get("optimizer") + "'" + network.optimizer +
-            "'" + ", " + this.state.kerasCode.get("metrics") + "'" + "accuracy" + "'" + "])" + ", " + this.state.kerasCode.get("learnRate") + this.state.kerasCode.get("network_end") + "\n";
+            "'" + ", " + this.state.kerasCode.get("metrics") + "'" + "accuracy" + "'" + "])" + ", " + this.state.kerasCode.get("learnRate") + network.learnRate + this.state.kerasCode.get("network_end") + "\n";
         code += this.state.kerasCode.get("modelfit") + network.epochs + ", " + this.state.kerasCode.get("batch") + network.batchSize + this.state.kerasCode.get("network_end");
         return code;
     }
     render() {
         return (
             <div class="codepanel">
-                <p>Generated Code</p> <br/>
-                {/* <h1>Code</h1>
-                <p>{this.doGetCode(this.props.appState.network)}</p> */}
-                <p>{this.doGetCode(this.props.appState.network)}</p>
-            {/* <Form id="codebox">
-                <Form.Group controlId="codebox">
-                     <Form.Label>Generated Code</Form.Label>
-                     
-                     <Form.Control as="textarea" rows="3" placeholder="test"/>
-                     </Form.Group>
-                </Form> */}
+                <h5>Generated Code</h5>
+                <div class="code">
+                    <br />
+                    {/* <h1>Code</h1>
+                    <p>{this.doGetCode(this.props.appState.network)}</p> */}
+                    <p>{this.doGetCode(this.props.appState.network)}</p>
+                    {/* <Form id="codebox">
+                    <Form.Group controlId="codebox">
+                        <Form.Label>Generated Code</Form.Label>
+                        
+                        <Form.Control as="textarea" rows="3" placeholder="test"/>
+                        </Form.Group>
+                    </Form> */}
 
-            {/* <input className="codepanel" type="text" value= {this.doGetCode(this.props.appState.network)}/> */}
+                    {/* <input className="codepanel" type="text" value= {this.doGetCode(this.props.appState.network)}/> */}
+                </div>
             </div>
 
         );

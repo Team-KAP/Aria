@@ -10,13 +10,17 @@ class LearnPanel extends Component {
             input: 12,
             value: 0,
             setValue: 0,
-            currentOpti: "<select optimizer>",
+            currentOpti: "none",
             optimizers: [
-                "<select optimizer>", "SGD", "RMSProp", "Adadelta", "Adam"
+                "SGD", "RMSProp", "Adadelta", "Adam"
+            ],
+            losses: [
+                "Mean Squared Error", "Mean Absolute Error", "Hinge"
             ],
         }
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     handleChange(event) {
@@ -25,6 +29,16 @@ class LearnPanel extends Component {
         if (this.props.appState.loadable) {
             this.props.appState.doSetLearnRate(event.target.value)
         }
+    }
+
+    handleClick(event){
+        if(this.props.appState.network.learningRateDecay){
+            this.props.appState.doSetLearningDecay(false);
+        }
+        else{
+            this.props.appState.doSetLearningDecay(true);
+        }
+        // alert(this.props.appState.network.learningRateDecay);
     }
     
     render() {
@@ -48,7 +62,23 @@ class LearnPanel extends Component {
                     </Dropdown.Menu>
                 </Dropdown>
                 <br/>
-                        <p>{this.state.currentOpti}</p>
+                        <p>Current optimizer: {this.state.currentOpti}</p>
+                <br/>
+                <Dropdown>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">Loss Functions</Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        {this.state.losses.map(loss => {
+                            return(
+                                <Dropdown.Item as="button" 
+                                onClick={() => {
+                                    // this.setState({currentOpti: loss});
+                                    this.props.appState.doSetLoss(loss);
+                                }}
+                                    >{loss}</Dropdown.Item>
+                            )
+                        })}                        
+                    </Dropdown.Menu>
+                </Dropdown>
                 <br/>
                 <Form>
                     <Form.Group controlId="formBasicRange">
@@ -67,8 +97,8 @@ class LearnPanel extends Component {
                             type={type}
                             id={`learning rate checkbox`}
                             label={`Learning Rate Decay`}
-                            onChange={(e)=>alert("pressed")}
-                            
+                            onChange={this.handleClick}     
+                            // checked={this.props.appState.network.learningRateDecay}                       
                         />
                         </div>
                     ))}

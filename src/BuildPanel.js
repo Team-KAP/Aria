@@ -11,13 +11,13 @@ class BuildPanel extends Component {
             input: 12,
             value: 0,
             setValue: 0,
-            currentActivation: "<select activation function>",
-            currentInit: "<select weight initializer>",
+            currentActivation: "<select a layer>",
+            currentInit: "<select a layer>",
             activations: [
-                "<select activation function>", "relu", "tanh", "sigmoid", "softmax"
+                "linear", "relu", "tanh", "sigmoid", "softmax"
             ],
             inits: [
-                "<select weight initializer>", "zeros", "ones", "normal", "uniform", "glorot uniform", "he uniform"
+                "zeros", "ones", "normal", "uniform", "glorot uniform", "he uniform"
             ],
         };
 
@@ -46,11 +46,12 @@ class BuildPanel extends Component {
                 <br />
                 <Form>
                     <Form.Group controlId="formBasicRange">
-                        <Form.Label>Number of nodes in layer : {this.props.appState.loadable ? this.props.appState.network.arrLayers[this.props.appState.selectedLayer].numNodes : ""}</Form.Label>
+                        <Form.Label>Node count: {this.props.appState.loadable ? this.props.appState.network.arrLayers[this.props.appState.selectedLayer].numNodes : ""}</Form.Label>
                         <Form.Control type="range" 
                         onChange={this.handleChange} 
+                        min="1"
                         max="10"
-                        value={this.props.appState.loadable ? this.props.appState.network.arrLayers[this.props.appState.selectedLayer].numNodes : 0}/>
+                        value={this.props.appState.loadable ? this.props.appState.network.arrLayers[this.props.appState.selectedLayer].numNodes : 1}/>
                     </Form.Group>
                 </Form>
 
@@ -70,7 +71,7 @@ class BuildPanel extends Component {
                     </Dropdown.Menu>
                 </Dropdown>
                 <br />
-                <p>{this.props.appState.loadable ? this.props.appState.network.arrLayers[this.props.appState.selectedLayer].activation : ""}</p>
+                <p>{this.props.appState.loadable ? this.props.appState.network.arrLayers[this.props.appState.selectedLayer].activation : "<create a layer>" }</p>
                 <br />
                 <Dropdown>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">Weight Initializer</Dropdown.Toggle>
@@ -88,7 +89,9 @@ class BuildPanel extends Component {
                     </Dropdown.Menu>
                 </Dropdown>
                 <br />
-                <p><p>{this.props.appState.loadable ? this.props.appState.network.arrLayers[this.props.appState.selectedLayer].weightInit : ""}</p></p>
+                <p>
+                    {this.props.appState.loadable ? this.props.appState.network.arrLayers[this.props.appState.selectedLayer].weightInit : "<create a layer>"}
+                    </p>
                 <br />
             </div>
         );

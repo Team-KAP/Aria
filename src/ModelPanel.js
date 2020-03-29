@@ -113,7 +113,7 @@ export class ModelPanel extends Component {
     onClickNodeFunc = (e) => {
         const node = e.data.node;
         const id = node.id;
-        const SELECTED_LAYER = parseInt(id.substring(0,1));
+        const SELECTED_LAYER = parseInt(id.substring(0,id.indexOf(",")));
         this.props.appState.doSelectLayer(SELECTED_LAYER);
     }
     
@@ -162,7 +162,7 @@ export class ModelPanel extends Component {
                 
             return (
                 <div id="content">
-                    <h1>Model</h1>
+                    <h3>Model Architecture</h3>
                     <div style={{ height: "90%" }}>                   
                         {this.getSigma(g)}
                     </div>

@@ -1,4 +1,5 @@
 #settings {
-    background-color: rgb(175, 179, 174);
-    height: 400px;
+    /* background-color: rgb(175, 179, 174); */
+    height: 60vh;
+    overflow-y: auto;
 }

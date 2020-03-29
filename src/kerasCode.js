@@ -1,11 +1,12 @@
 export class network {
     constructor() {
         this.arrLayers = [];
-        this.optimizer = 0;
+        this.optimizer = "None";
         this.learnRate = 0;
-        this.loss = 0;
-        this.epochs = 0;
-        this.batchSize = 0;
+        this.loss = "Mean Squared Error";
+        this.epochs = 100;
+        this.batchSize = 32;
+        this.learningRateDecay = false; 
     }
 
 
@@ -15,8 +16,9 @@ export class network {
         this.arrLayers = old_network.arrLayers;
         this.optimizer = old_network.optimizer;
         this.learnRate = old_network.learnRate;
+        this.learningRateDecay = old_network.learningRateDecay;
         this.loss = old_network.loss;
-        this.epochs = old_network.loss;
+        this.epochs = old_network.epochs;
         this.batchSize = old_network.batchSize;
         this.reportContent();
     }
@@ -29,10 +31,12 @@ export class network {
         console.log("REPORTING NETWORK")
         console.log(this.arrLayers);
         console.log("optimizer: " + String(this.optimizer));
-        console.log("metrics: " + String(this.learnRate));
+        console.log("learnRate: " + String(this.learnRate));
+        console.log("learnRateDecay: " + String(this.learningRateDecay));
         console.log("loss: " + String(this.loss));
         console.log("epochs: " + String(this.epochs));
         console.log("Batch Size: " + String(this.batchSize));
+        console.log("Learning Rate Decay: " + String(this.learningRateDecay));
         console.log(" ");
     }
 
@@ -49,6 +53,10 @@ export class network {
 
      setEpochs(newEpochs) {
          this.epochs = newEpochs;
+     }
+
+     setlearningRateDecay(newDecay) {
+         this.learningRateDecay = newDecay;
      }
 
     // setInit(newInit) {
@@ -69,7 +77,7 @@ export class layer {
         this.numNodes = numNodes; //temporary
         this.activation = activation; //default
         this.isFirstLayer = isFirstLayer;
-        this.weightInit = weightInit;
+        this.weightInit = "glorot uniform";
         //this.isLastLayer = isLastLayer;
     }
     setWeightInit(newWeight) {

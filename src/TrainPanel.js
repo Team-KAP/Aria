@@ -37,8 +37,9 @@ class TrainPanel extends Component {
                         <Form.Label>Batch Size: {this.props.appState.network.batchSize}</Form.Label>
                         <Form.Control type="range"
                             onChange={this.handleBatchChange}
+                            min="32"
                             max="256"
-                            step="64" value={this.props.appState.network.batchSize}
+                            step="32" value={this.props.appState.network.batchSize}
                         />
                     </Form.Group>
                 </Form>

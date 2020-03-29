@@ -28,7 +28,29 @@ class App extends Component {
       doSetLearnRate: (new_learn) => this.doSetLearnRate(new_learn),
       doSetEpochs: (new_epochs) => this.doSetEpochs(new_epochs),
       doSetBatchSize: (new_batch) => this.doSetBatchSize(new_batch),
+      doSetLoss: (new_loss) => this.doSetLoss(new_loss),
+      doSetLearningDecay: (new_decay) => this.doSetLearningDecay(new_decay),
     }
+  }
+  doSetLearningDecay = new_decay => {
+    let new_network = new network();
+    new_network.copy(this.state.network);
+    new_network.setlearningRateDecay(new_decay);
+    this.setState(prevState => {
+      return {
+        network: new_network
+      }
+    })
+  }
+  doSetLoss = new_loss => {
+    let new_network = new network();
+    new_network.copy(this.state.network);
+    new_network.setLoss(new_loss);
+    this.setState(prevState => {
+      return {
+        network: new_network
+      }
+    })
   }
   doSetEpochs = new_epochs => {
     let new_network = new network();
@@ -110,7 +132,7 @@ unhideModelPanel = () => {
   }
 
   doAddLayer = () => {
-    let new_layer = new layer(10, 'relu', false, false);
+    let new_layer = new layer(5, 'relu', false, false, "zeros");
     const newNetwork = new network();
     newNetwork.copy(this.state.network);
 
@@ -172,9 +194,9 @@ unhideModelPanel = () => {
   render() {
     return (
       <div class="wrapper">
-        {/* <button onClick={() => this.doSetActivation(0, "testAct")}>Test setActivation</button>
-        <button onClick={() => this.doSetWeightInit(0, "testInit")}>test setInit</button> */}
+
         <button onClick={() => this.state.network.reportContent()}>Report Network</button>
+
         {/* <NetworkGraph appState={this.state}/> */}
         <ModelPanel appState={this.state} />
         <JSide appState={this.state} />
