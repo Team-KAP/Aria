@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import JSide from "./JSide.js";
 import { network, layer } from "./kerasCode.js";
+import ModelPanel from "./ModelPanel.js"
 
 
 class App extends Component {
@@ -68,6 +69,7 @@ function JMain() {
   return (
     <div id="content">
       {/* <img src="https://cmkt-image-prd.freetls.fastly.net/0.1.0/ps/3798405/600/400/m2/fpnw/wm0/3-.png?1514983771&s=8aab9047868045a98147b3068d8c8071"></img> */}
+        <ModelPanel />
     </div>
   );
 }
