@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 // @ts-ignore 
-import { Sigma} from 'react-sigma';
+import { Sigma, LoadJSON } from 'react-sigma';
 
 import { layer } from './kerasCode.js'
 
@@ -83,6 +83,17 @@ function connect(prevLayerNodes, thisLayerNodes, edges) {
 
 }
 
+function writer(g) { // TODO
+    let content = JSON.stringify(g);
+    // fs.writeFile('graph.json', content, err => {
+    //     if (err) {
+    //       console.error(err)
+    //       return
+    //     }
+    //     //file written successfully
+    //   })
+}
+
 // function genLayers() {
 //     let arrLayers = [];
 //     let temp3 = new layer(2, 'softmax', false, true);
@@ -94,18 +105,32 @@ function connect(prevLayerNodes, thisLayerNodes, edges) {
 //     return arrLayers;
 // }
 
+let onClickNodeFunc = (e) => {console.log(e)}
+
 function getSigma(data) {
     // console.log("rendering using data: ");
     // console.log(data);
     let s = <Sigma 
         graph={data} 
         style={{ height: "100%" }}
+        onClickNode={onClickNodeFunc}
         settings={{
             maxNodeSize: 15, maxEdgeSize: 0.3,
             clone: false, 
-            defaultNodeColor: "#fff"
+            enableHovering: true,
+            defaultNodeColor: "#fff",
+            rescaleIgnoreSize: false, // TODO change?
         }}>
     </Sigma>
+
+    //writer(data);
+
+    // let s2 = 
+    // <Sigma>
+    //     <LoadJSON url="/graph.json">
+
+    //     </LoadJSON>
+    // </Sigma>
     return s;
 }
 
@@ -124,8 +149,9 @@ export class ModelPanel extends Component {
 
         // console.log("preloaded");
         // console.log(preloaded);
-        // console.log("g");
-        // console.log(g);
+        console.log("g");
+        console.log(g);
+        console.log(JSON.stringify(g));
 
         if (!this.props.appState.hideModelPanel) {
                 
