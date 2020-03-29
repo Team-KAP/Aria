@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 
-//import { Sigma, RandomizeNodePositions, RelativeSize } from 'react-sigma';
 // @ts-ignore 
-import { Sigma, RelativeSize, RandomizeNodePositions, ForceAtlas2, EdgeShapes, NodeShapes, Graph } from 'react-sigma';
-// @ts-ignore 
-//import {sigma} from 'sigma'
+import { Sigma} from 'react-sigma';
 
 import { layer } from './kerasCode.js'
 
@@ -79,23 +76,23 @@ function connect(prevLayerNodes, thisLayerNodes, edges) {
             let size = 1 - (prevLayerNodes.length * thisLayerNodes.length) / 100;
 
             let edge = { id: id, source: source, target: target, size: size };
-            //edges.push(edge);
+            edges.push(edge);
 
         }
     }
 
 }
 
-function genLayers() {
-    let arrLayers = [];
-    let temp3 = new layer(2, 'softmax', false, true);
-    let temp4 = new layer(6, 'softmax', false, true);
-    let temp5 = new layer(8, 'softmax', false, true);
-    let temp56 = new layer(4, 'softmax', false, true);
-    let temp6 = new layer(1, 'softmax', false, true);
-    arrLayers.push(temp3, temp5, temp4, temp56, temp6);
-    return arrLayers;
-}
+// function genLayers() {
+//     let arrLayers = [];
+//     let temp3 = new layer(2, 'softmax', false, true);
+//     let temp4 = new layer(6, 'softmax', false, true);
+//     let temp5 = new layer(8, 'softmax', false, true);
+//     let temp56 = new layer(4, 'softmax', false, true);
+//     let temp6 = new layer(1, 'softmax', false, true);
+//     arrLayers.push(temp3, temp5, temp4, temp56, temp6);
+//     return arrLayers;
+// }
 
 function getSigma(data) {
     console.log("rendering using data: ");
@@ -115,15 +112,12 @@ function getSigma(data) {
 export class ModelPanel extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            data: {},
-        }
     }
 
     render() {
         
-        let r = parseInt(Math.random() * 5);
-        let preloaded = layersToGraph(genLayers().slice(0, 5));
+        // let r = parseInt(Math.random() * 5);
+        // let preloaded = layersToGraph(genLayers().slice(0, 5));
 
         let layers = this.props.appState.network.arrLayers;
         let g = layersToGraph(layers);
@@ -133,35 +127,22 @@ export class ModelPanel extends Component {
         console.log("g");
         console.log(g);
 
-        if (g.nodes.length === 0) {
+        if (!this.props.appState.hideModelPanel) {
                 
-        return (
-            <div id="content">
-                <h1>Model</h1>
-                <div style={{ backgroundColor: "#333", height: "90%" }}>                   
-                    {getSigma(preloaded)}
-                </div>
-            </div>
-
-        );
-
-        }  else {
-
-            
             return (
                 <div id="content">
-                    <h1>ModelTEST</h1>
+                    <h1>Model</h1>
                     <div style={{ backgroundColor: "#333", height: "90%" }}>                   
-                        {getSigma(g)}
                         {getSigma(g)}
                     </div>
                 </div>
-    
+
             );
 
+        }  else {
+            this.props.appState.unhideModelPanel(); // re-render!
+            return false;
         }
 
     }
 }
-
-// export default ModelPanel;
