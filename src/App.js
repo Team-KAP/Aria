@@ -5,6 +5,7 @@ import './App.css';
 import JSide from "./JSide.js";
 import { network, layer } from "./kerasCode.js";
 import {ModelPanel} from "./ModelPanel.js"
+import { isTSTypeAliasDeclaration } from '@babel/types';
 //import {NetworkGraph} from "./ModelPanel.js"
 
 
@@ -17,7 +18,7 @@ class App extends Component {
       network: new network(),
       selectedLayer: 0,
       loadable: false,
-      doSelectLayer: () => this.doSelectLayer(), // pass to modelPanel
+      doSelectLayer: selected_layer => this.doSelectLayer(selected_layer), // pass to modelPanel
       doAddLayer: () => this.doAddLayer(), // pass to buildPanel, to call as needed
       doSetOptimizer: new_opt => this.doSetOptimizer(new_opt),
       doSetActivation: (layer, new_act) => this.doSetActivation(layer, new_act),
@@ -28,12 +29,12 @@ class App extends Component {
   }
   
   doSelectLayer = selected_layer => {
+    // alert("setting to "+ selected_layer);
     this.setState(prevState => {
       return {
         selectedLayer: selected_layer
       }
     })
-
   }
 
 

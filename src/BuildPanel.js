@@ -41,6 +41,7 @@ class BuildPanel extends Component {
                     this.props.appState.doAddLayer();
                 }}>Add Layer</Button>{' '}
                 <br />
+                {/* {alert("selected layer is " + this.props.appState.selectedLayer)} */}
                 <br />
                 <Form>
                     <Form.Group controlId="formBasicRange">

@@ -18,6 +18,7 @@ class CodePanel extends Component {
         this.state.kerasCode.set("metrics", "metrics=[");
         this.state.kerasCode.set("modelfit", "model.fit(x=None, y=None, epochs=")
         this.state.kerasCode.set("batch", "batch_size=")
+        this.state.kerasCode.set("learnRate", "learning_rate=");
         this.state.kerasCode.set("network_end", "))");
     }
 
@@ -43,8 +44,8 @@ class CodePanel extends Component {
         }
 
         code += this.state.kerasCode.get("compile") + this.state.kerasCode.get("losser") + "'" + network.loss + "'" + ", " + this.state.kerasCode.get("optimizer") + "'" + network.optimizer +
-            "'" + ", " + this.state.kerasCode.get("metrics") + "'" + network.learnRate + "'" + "])" + "\n";
-        code += this.state.kerasCode.get("modelfit") + network.epochs + ", " + network.batchSize + this.state.kerasCode.get("network_end");
+            "'" + ", " + this.state.kerasCode.get("metrics") + "'" + "accuracy" + "'" + "])" + ", " + this.state.kerasCode.get("learnRate") + this.state.kerasCode.get("network_end") + "\n";
+        code += this.state.kerasCode.get("modelfit") + network.epochs + ", " + this.state.kerasCode.get("batch") + network.batchSize + this.state.kerasCode.get("network_end");
         return code;
     }
     render() {

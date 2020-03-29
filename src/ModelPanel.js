@@ -113,9 +113,8 @@ export class ModelPanel extends Component {
     onClickNodeFunc = (e) => {
         const node = e.data.node;
         const id = node.id;
-        const SELECTED_LAYER = id.substring(0,1);
+        const SELECTED_LAYER = parseInt(id.substring(0,1));
         this.props.appState.doSelectLayer(SELECTED_LAYER);
-        alert("selected layer: " + SELECTED_LAYER);
     }
     
     getSigma(data) {
@@ -155,9 +154,9 @@ export class ModelPanel extends Component {
 
         // console.log("preloaded");
         // console.log(preloaded);
-        console.log("g");
-        console.log(g);
-        console.log(JSON.stringify(g));
+        // console.log("g");
+        // console.log(g);
+        // console.log(JSON.stringify(g));
 
         if (!this.props.appState.hideModelPanel) {
                 
