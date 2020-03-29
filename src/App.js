@@ -12,12 +12,26 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      hideModelPanel: false,
+      unhideModelPanel: () => this.unhideModelPanel(),
       network: new network(),
+      selectedLayer: 0,
+      loadable: false,
       doAddLayer: () => this.doAddLayer(), // pass to buildPanel, to call as needed
       doSetOptimizer: new_opt => this.doSetOptimizer(new_opt),
-
+      doSetActivation: (layer, new_act) => this.doSetActivation(layer, new_act),
+      doSetWeightInit: (layer, new_weight) => this.doSetWeightInit(layer, new_weight),
     }
   }
+  
+
+unhideModelPanel = () => {
+  this.setState(prevState => {
+    return {
+      hideModelPanel: false,
+    }
+  })
+}
 
   doSetOptimizer = new_opt => {
     console.log("starting");
@@ -51,22 +65,49 @@ class App extends Component {
 
     this.setState(prevState => {
       return {
-        network: newNetwork
+        hideModelPanel: true,
+        network: newNetwork,
+        loadable: true
       }
     })
 
 
   }
+/**
+ * 
+ * @param {*} layer numeric id of the layer
+ * @param {*} new_act new activation function to be set
+ */
+  doSetActivation(layer, new_act){
+    let new_network = new network();
+    new_network.copy(this.state.network);
+    
+    new_network.arrLayers[layer].setActivation(new_act);
+    this.setState(prevState => {
+      return {
+        network: new_network
+      }
+    })
+  }
+
+  doSetWeightInit(layer, new_weight){
+    let new_network = new network();
+    new_network.copy(this.state.network);
+    
+    new_network.arrLayers[layer].setWeightInit(new_weight);
+    this.setState(prevState => {
+      return {
+        network: new_network
+      }
+    })
+  }
 
   render() {
     return (
       <div class="wrapper">
-        <p>
-          <br />
-          {this.state.network.optimizer} <br />
-        </p>
-
-        {/* <button onClick={() => this.changeOptimizer()}>Hi</button> */}
+        {/* <button onClick={() => this.doSetActivation(0, "testAct")}>Test setActivation</button>
+        <button onClick={() => this.doSetWeightInit(0, "testInit")}>test setInit</button> */}
+        <button onClick={() => this.state.network.reportContent()}>Report Network</button>
         {/* <NetworkGraph appState={this.state}/> */}
         <ModelPanel appState={this.state}/>
         <JSide appState={this.state} />

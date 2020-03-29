@@ -17,7 +17,8 @@ class BuildPanel extends Component {
             ],
             inits: [
                 "<select weight initializer>", "zeros", "ones", "normal", "uniform", "glorot uniform", "he uniform"
-            ]
+            ],
+            
         }
     }
 
@@ -25,6 +26,7 @@ class BuildPanel extends Component {
         return (
             <div>
                 <br />
+                <p>Currently selected layer: {this.props.appState.selectedLayer}</p> 
                 <Button variant="primary" onClick={()=>{
                     console.log("adding layer");
                     this.props.appState.doAddLayer();
@@ -39,7 +41,7 @@ class BuildPanel extends Component {
                                 <Dropdown.Item as="button"
                                 onClick={() => {
                                     this.setState({currentActivation: activation});
-                                    // this.props.appState.doSetOptimizer(activation);
+                                    this.props.appState.doSetActivation(this.props.appState.selectedLayer, activation);
                                 }}
                                 >{activation}</Dropdown.Item>
                             )
@@ -47,7 +49,7 @@ class BuildPanel extends Component {
                     </Dropdown.Menu>
                 </Dropdown>
                 <br />
-                <p>{this.state.currentActivation}</p>
+                <p>{this.props.appState.loadable ? this.props.appState.network.arrLayers[this.props.appState.selectedLayer].activation : ""}</p>
                 <br />
                 <Dropdown>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">Weight Initializer</Dropdown.Toggle>
@@ -57,7 +59,7 @@ class BuildPanel extends Component {
                                 <Dropdown.Item as="button"
                                     onClick={() => {
                                         this.setState({ currentInit: init });
-                                        // this.props.appState.doSetInitializer(init);
+                                        this.props.appState.doSetWeightInit(this.props.appState.selectedLayer, init);
                                     }}>{init}</Dropdown.Item>
                             )
                         })
@@ -65,7 +67,7 @@ class BuildPanel extends Component {
                     </Dropdown.Menu>
                 </Dropdown>
                 <br />
-                <p>{this.state.currentInit}</p>
+                <p><p>{this.props.appState.loadable ? this.props.appState.network.arrLayers[this.props.appState.selectedLayer].weightInit : ""}</p></p>
                 <br />
             </div>
         );

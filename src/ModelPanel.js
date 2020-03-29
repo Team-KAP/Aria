@@ -164,4 +164,3 @@ export class ModelPanel extends Component {
     }
 }
 
-// export default ModelPanel;

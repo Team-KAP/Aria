@@ -22,10 +22,11 @@ export class network {
     }
 
     reportContent() {
+        console.log("REPORTING NETWORK")
         console.log(this.arrLayers);
-        console.log(this.optimizer);
-        console.log(this.metrics);
-        console.log(this.loss);
+        console.log("optimizer: " + String(this.optimizer));
+        console.log("metrics: " + String(this.metrics));
+        console.log("loss: " + String(this.loss));
         console.log(" ");
     }
 
@@ -51,11 +52,15 @@ export class network {
 }
 
 export class layer {
-    constructor(numNodes, activation, isFirstLayer, isLastLayer) {
+    constructor(numNodes, activation, isFirstLayer, isLastLayer, weightInit) {
         this.numNodes = numNodes; //temporary
         this.activation = activation; //default
         this.isFirstLayer = isFirstLayer;
+        this.weightInit = weightInit;
         //this.isLastLayer = isLastLayer;
+    }
+    setWeightInit(newWeight) {
+        this.weightInit = newWeight;
     }
     setNumNodes(newNode) {
         this.numNodes = newNode;
@@ -68,45 +73,16 @@ export class layer {
     }
 }
 
-let kerasCode = new Map();
-kerasCode.set("beginModel", "model = Sequential()");
-kerasCode.set("addLayer", "model.add(Dense(");
-kerasCode.set("input_dim", "input_dim=");
-kerasCode.set("compile", "model.compile(");
-kerasCode.set("losser", "loss=")
-kerasCode.set("optimizer", "optimizer=");
-kerasCode.set("metrics", "metrics=[");
-kerasCode.set("network_end", "))");
-
 function getActivationCode(layer) {
     return 'activation=' + "'" + layer.activation + "'";
 }
 
-function turntoString(network) {
-    var code = "";
-    code += kerasCode.get("beginModel") + "\n";
-    for (let layer of network.arrLayers) {
-        code += kerasCode.get("addLayer");
-        code += layer.numNodes + ", ";
-        if (layer.isFirstLayer === true) {
-            code += kerasCode.get("input_dim") + layer.numNodes + ", ";
-        }
-        if (layer.activation != null) {
-            code += getActivationCode(layer);
-        }
-        code += kerasCode.get("network_end") + "\n";
-    }
 
-    code += kerasCode.get("compile") + kerasCode.get("losser") + "'" + network.loss + "'" + ", " + kerasCode.get("optimizer") + "'" + network.optimizer +
-        "'" + ", " + kerasCode.get("metrics") + "'" + network.metrics + "'" + "])"
-    return code;
-}
 
-// array = []
-// temp = new layer();
-// let networks = new network()
-// networks.optimizer = "adam";
-// temp3 = new layer(8, 'softmax', false, true);
-// networks.arrLayers.push(temp3)
-// turntoString(networks);
+// let new_layer = new layer(10, 'relu', true, false);
+// let new_layer1 = new layer(10, 'relu', false, false);
+// let networks = new network();
+// networks.addLayer(new_layer);
+// networks.addLayer(new_layer1);
 
+// console.log(turntoString(networks));
