@@ -1,0 +1,2 @@
+.wrapper{display:flex;width:100%;align-items:stretch}#content{width:100%;padding:20px;min-height:100vh}#content,#sidebar{transition:all .3s}#sidebar{min-width:350px;max-width:350px}.codepanel{background-color:#3c597f;overflow-y:auto;position:fixed;height:35vh;font-family:monospace}#settings{height:65vh;overflow-y:auto}
+/*# sourceMappingURL=main.1896a74b.chunk.css.map */
