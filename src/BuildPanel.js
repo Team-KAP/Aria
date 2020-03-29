@@ -27,7 +27,8 @@ class BuildPanel extends Component {
     handleChange(event) {
         // this.props.appState.selectedLayer
         if (this.props.appState.loadable) {
-            this.props.appState.doSetNumNodes(this.props.appState.selectedLayer, event.target.value)
+            this.props.appState.doSetNumNodes(this.props.appState.selectedLayer, event.target.value);
+            this.props.appState.hideModelPanel();
         }
     }
 
