@@ -41,6 +41,10 @@ export class network {
          this.loss = newLoss; 
      }
 
+     setEpochs(newEpochs) {
+         this.epochs = newEpochs;
+     }
+
     // setInit(newInit) {
     //     this.initializer = newInit;
     // }
