@@ -53,11 +53,11 @@ export class network {
 }
 
 export class layer {
-    constructor() {
-        this.numNodes = null //temporary
-        this.activation = null //default
-        this.isFirstLayer = null
-        this.isLastLayer = null
+    constructor(numNodes, activation, isFirstLayer, isLastLayer) {
+        this.numNodes = numNodes; //temporary
+        this.activation = activation; //default
+        this.isFirstLayer = isFirstLayer;
+        this.isLastLayer = isLastLayer;
     }
     setNumNodes(newNode) {
         this.numNodes = newNode;

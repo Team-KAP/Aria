@@ -50,7 +50,7 @@ class App extends Component {
         </p>
 
         {/* <button onClick={() => this.changeOptimizer()}>Hi</button> */}
-        <JMain />
+        <ModelPanel />
         <JSide appState={this.state} />
       </div>
     );
@@ -64,15 +64,14 @@ class App extends Component {
 
 }
 
-
-function JMain() {
-  return (
-    <div id="content">
-      {/* <img src="https://cmkt-image-prd.freetls.fastly.net/0.1.0/ps/3798405/600/400/m2/fpnw/wm0/3-.png?1514983771&s=8aab9047868045a98147b3068d8c8071"></img> */}
-        <ModelPanel />
-    </div>
-  );
-}
+// function JMain() {
+//   return (
+//     <div id="content" style={{backgroundColor: "#444"}}>
+//       {/* <img src="https://cmkt-image-prd.freetls.fastly.net/0.1.0/ps/3798405/600/400/m2/fpnw/wm0/3-.png?1514983771&s=8aab9047868045a98147b3068d8c8071"></img> */}
+//         <ModelPanel />
+//     </div>
+//   );
+// }
 
 
 
