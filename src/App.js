@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ReactBootstrap from 'react-bootstrap';
 import logo from './logo.svg';
 import './App.css';
-import JNav from "./JNav.js";
+import JSide from "./JSide.js";
 import {network, layer} from "./kerasCode.js";
 
 
@@ -19,7 +19,7 @@ constructor(props){
     return (
       <div class="wrapper">
         <JMain />
-        <JNav  {...this.state} />
+        <JSide  {...this.state} />
       </div>
     );
   }

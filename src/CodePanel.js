@@ -11,6 +11,7 @@ class CodePanel extends Component {
     render() {
         return (
             <div class="codepanel">
+                <h1>Code</h1>
                 <p>{this.state.currentCode}</p>
             </div>
 

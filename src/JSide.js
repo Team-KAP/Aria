@@ -4,7 +4,7 @@ import Tab from 'react-bootstrap/Tab';
 import BuildPanel from "./BuildPanel.js"
 import LearnPanel from "./LearnPanel.js"
 import CodePanel from "./CodePanel.js";
-import "./JNav.css"
+import "./JSide.css"
 class JNav extends Component {
   constructor(props) {
     super(props);
