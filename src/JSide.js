@@ -37,7 +37,7 @@ class JSide extends Component {
 
         {/* <button onClick={() => this.props.doSetOpt()}>Hi</button> */}
 
-        <CodePanel />
+        <CodePanel appState={this.props.appState}/>
       </div>
     );
   }

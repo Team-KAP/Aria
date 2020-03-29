@@ -5,45 +5,49 @@ class CodePanel extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentCode: "model = Sequential()"
+            // currentCode: "model = Sequential()",
+            kerasCode: new Map(),
         }
-
+        this.state.kerasCode.set("beginModel", "model = Sequential()");
+        this.state.kerasCode.set("addLayer", "model.add(Dense(");
+        this.state.kerasCode.set("input_dim", "input_dim=");
+        this.state.kerasCode.set("compile", "model.compile(");
+        this.state.kerasCode.set("losser", "loss=")
+        this.state.kerasCode.set("optimizer", "optimizer=");
+        this.state.kerasCode.set("metrics", "metrics=[");
+        this.state.kerasCode.set("network_end", "))");
     }
 
-    let kerasCode = new Map();
-kerasCode.set("beginModel", "model = Sequential()");
-kerasCode.set("addLayer", "model.add(Dense(");
-kerasCode.set("input_dim", "input_dim=");
-kerasCode.set("compile", "model.compile(");
-kerasCode.set("losser", "loss=")
-kerasCode.set("optimizer", "optimizer=");
-kerasCode.set("metrics", "metrics=[");
-kerasCode.set("network_end", "))");
+    getActivationCode(layer) {
+        return 'activation=' + "'" + layer.activation + "'";
+    }
+
+
 
     doGetCode = (network) => {
         var code = "";
-        code += kerasCode.get("beginModel") + "\n";
+        code += this.state.kerasCode.get("beginModel") + "\n";
         for (let layer of network.arrLayers) {
-            code += kerasCode.get("addLayer");
+            code += this.state.kerasCode.get("addLayer");
             code += layer.numNodes + ", ";
             if (layer.isFirstLayer === true) {
-                code += kerasCode.get("input_dim") + layer.numNodes + ", ";
+                code += this.state.kerasCode.get("input_dim") + layer.numNodes + ", ";
             }
             if (layer.activation != null) {
-                code += getActivationCode(layer);
+                code += this.getActivationCode(layer);
             }
-            code += kerasCode.get("network_end") + "\n";
+            code += this.state.kerasCode.get("network_end") + "\n";
         }
-    
-        code += kerasCode.get("compile") + kerasCode.get("losser") + "'" + network.loss + "'" + ", " + kerasCode.get("optimizer") + "'" + network.optimizer +
-            "'" + ", " + kerasCode.get("metrics") + "'" + network.metrics + "'" + "])"
+
+        code += this.state.kerasCode.get("compile") + this.state.kerasCode.get("losser") + "'" + network.loss + "'" + ", " + this.state.kerasCode.get("optimizer") + "'" + network.optimizer +
+            "'" + ", " + this.state.kerasCode.get("metrics") + "'" + network.metrics + "'" + "])"
         return code;
     }
     render() {
         return (
             <div class="codepanel">
                 <h1>Code</h1>
-                <p>{this.state.currentCode}</p>
+                <p>{this.doGetCode(this.props.appState.network)}</p>
             </div>
 
         );
