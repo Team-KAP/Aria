@@ -2,8 +2,9 @@ export class network {
     constructor() {
         this.arrLayers = [];
         this.optimizer = 0;
-        this.metrics = 0;
+        this.learnRate = 0;
         this.loss = 0;
+        this.epochs = 0;
     }
 
 
@@ -12,8 +13,9 @@ export class network {
         // console.log(Object.keys(old_network));
         this.arrLayers = old_network.arrLayers;
         this.optimizer = old_network.optimizer;
-        this.metrics = old_network.metrics;
+        this.learnRate = old_network.learnRate;
         this.loss = old_network.loss;
+        this.epochs = old_network.loss;
         this.reportContent();
     }
 
@@ -25,18 +27,19 @@ export class network {
         console.log("REPORTING NETWORK")
         console.log(this.arrLayers);
         console.log("optimizer: " + String(this.optimizer));
-        console.log("metrics: " + String(this.metrics));
+        console.log("metrics: " + String(this.learnRate));
         console.log("loss: " + String(this.loss));
+        console.log("epochs: " + String(this.epochs));
         console.log(" ");
     }
 
-    // setMetrics(newMetrics) {
-    //     this.metrics = newMetrics;
-    // } 
+     setLearnRate(newLearn) {
+         this.learnRate = newLearn;
+     } 
 
-    // setLoss(newLoss) {
-    //     this.loss = newLoss; 
-    // }
+     setLoss(newLoss) {
+         this.loss = newLoss; 
+     }
 
     // setInit(newInit) {
     //     this.initializer = newInit;

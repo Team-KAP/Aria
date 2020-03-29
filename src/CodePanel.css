@@ -1,4 +1,7 @@
    
 .codepanel {
-    background-color: orange;
+    background-color: #3C597F;
+    overflow-y: auto;
+    position:fixed;
+    height: 300px;
 }

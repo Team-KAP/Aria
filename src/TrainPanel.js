@@ -1,17 +1,26 @@
 import React, { Component } from "react";
-import {Form} from "react-bootstrap";
+import { Form } from "react-bootstrap";
 class TrainPanel extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({ value: event.target.value });
+    }
+
     render() {
         return (
             <div>
                 <br />
-                <p>
-                    TrainPanel
-            </p>
                 <Form>
                     <Form.Group controlId="formBasicRange">
-                        <Form.Label>Range</Form.Label>
-                        <Form.Control type="range" />
+                        <Form.Label>Epochs</Form.Label>
+                        <Form.Control type="range" onChange={this.handleChange} />
                     </Form.Group>
                 </Form>
             </div>

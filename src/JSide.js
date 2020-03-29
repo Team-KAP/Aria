@@ -14,8 +14,8 @@ class JSide extends Component {
 
   render() {
     return (
-      <div id="sidebar">
-        <div class="settings">
+      <div id="sidebar">"
+        <div id="settings">
           <Tabs defaultActiveKey="build" id="settings">
             <Tab eventKey="build" title="Build">
               <div>

@@ -21,9 +21,25 @@ class App extends Component {
       doSetOptimizer: new_opt => this.doSetOptimizer(new_opt),
       doSetActivation: (layer, new_act) => this.doSetActivation(layer, new_act),
       doSetWeightInit: (layer, new_weight) => this.doSetWeightInit(layer, new_weight),
+      doSetNumNodes: (layer, new_nodes) => this.doSetNumNodes(layer, new_nodes),
+      doSetLearnRate: (new_learn) => this.doSetLearnRate(new_learn),
     }
   }
   
+
+  doSetLearnRate = new_learn => {
+    let new_network = new network();
+
+    new_network.copy(this.state.network);
+    new_network.setLearnRate(new_learn);
+    this.setState(prevState => {
+      return {
+        network: new_network
+      }
+    })
+
+  }
+
 
 unhideModelPanel = () => {
   this.setState(prevState => {
@@ -70,9 +86,8 @@ unhideModelPanel = () => {
         loadable: true
       }
     })
-
-
   }
+  
 /**
  * 
  * @param {*} layer numeric id of the layer
@@ -102,6 +117,17 @@ unhideModelPanel = () => {
     })
   }
 
+  doSetNumNodes = (layer, new_num) =>{
+    let new_network = new network();
+    new_network.copy(this.state.network);
+    
+    new_network.arrLayers[layer].setNumNodes(new_num);
+    this.setState(prevState => {
+      return {
+        network: new_network
+      }
+    })
+  }
   render() {
     return (
       <div class="wrapper">

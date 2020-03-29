@@ -95,8 +95,8 @@ function connect(prevLayerNodes, thisLayerNodes, edges) {
 // }
 
 function getSigma(data) {
-    console.log("rendering using data: ");
-    console.log(data);
+    // console.log("rendering using data: ");
+    // console.log(data);
     let s = <Sigma 
         graph={data} 
         style={{ height: "100%" }}
@@ -124,8 +124,8 @@ export class ModelPanel extends Component {
 
         // console.log("preloaded");
         // console.log(preloaded);
-        console.log("g");
-        console.log(g);
+        // console.log("g");
+        // console.log(g);
 
         if (!this.props.appState.hideModelPanel) {
                 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Dropdown from 'react-bootstrap/Dropdown'
+import { Form } from "react-bootstrap";
 
 class LearnPanel extends Component {
     constructor(props) {
@@ -13,6 +14,16 @@ class LearnPanel extends Component {
             optimizers: [
                 "<select optimizer>", "SGD", "RMSProp", "Adadelta", "Adam"
             ],
+        }
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event) {
+        // this.setState({ unitSliderValue: event.target.value });
+        // this.props.appState.selectedLayer
+        if (this.props.appState.loadable) {
+            this.props.appState.doSetLearnRate(event.target.value)
         }
     }
     
@@ -39,6 +50,12 @@ class LearnPanel extends Component {
                 <br/>
                         <p>{this.state.currentOpti}</p>
                 <br/>
+                <Form>
+                    <Form.Group controlId="formBasicRange">
+                        <Form.Label>Learning rate of the network :{this.props.appState.loadable ? this.props.appState.network.learnRate : ""}</Form.Label>
+                        <Form.Control type="range" onChange={this.handleChange} />
+                    </Form.Group>
+                </Form>
             </div>
         );
     }

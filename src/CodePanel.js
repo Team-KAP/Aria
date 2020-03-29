@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./CodePanel.css"
+import {Form} from "react-bootstrap";
 
 class CodePanel extends Component {
     constructor(props) {
@@ -40,14 +41,25 @@ class CodePanel extends Component {
         }
 
         code += this.state.kerasCode.get("compile") + this.state.kerasCode.get("losser") + "'" + network.loss + "'" + ", " + this.state.kerasCode.get("optimizer") + "'" + network.optimizer +
-            "'" + ", " + this.state.kerasCode.get("metrics") + "'" + network.metrics + "'" + "])"
+            "'" + ", " + this.state.kerasCode.get("metrics") + "'" + network.learnRate + "'" + "])"
         return code;
     }
     render() {
         return (
             <div class="codepanel">
-                <h1>Code</h1>
+                <p>Generated Code</p> <br/>
+                {/* <h1>Code</h1>
+                <p>{this.doGetCode(this.props.appState.network)}</p> */}
                 <p>{this.doGetCode(this.props.appState.network)}</p>
+            {/* <Form id="codebox">
+                <Form.Group controlId="codebox">
+                     <Form.Label>Generated Code</Form.Label>
+                     
+                     <Form.Control as="textarea" rows="3" placeholder="test"/>
+                     </Form.Group>
+                </Form> */}
+
+            {/* <input className="codepanel" type="text" value= {this.doGetCode(this.props.appState.network)}/> */}
             </div>
 
         );
