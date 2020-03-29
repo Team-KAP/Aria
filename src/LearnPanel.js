@@ -15,7 +15,7 @@ class LearnPanel extends Component {
                 "SGD", "RMSProp", "Adadelta", "Adam"
             ],
             losses: [
-                "Mean Squared Error", "Mean Absolute Error", "Hinge"
+                "Mean Squared Error", "Mean Absolute Error", "Hinge", "Binary Crossentropy"
             ],
         }
 

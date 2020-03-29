@@ -144,7 +144,8 @@ unhideModelPanel = () => {
     this.setState(prevState => {
       return {
         network: newNetwork,
-        loadable: true
+        loadable: true,
+        selectedLayer: this.state.network.arrLayers.length-1
       }
     })
 
@@ -195,7 +196,7 @@ unhideModelPanel = () => {
     return (
       <div class="wrapper">
 
-        <button onClick={() => this.state.network.reportContent()}>Report Network</button>
+        {/* <button onClick={() => this.state.network.reportContent()}>Report Network</button> */}
 
         {/* <NetworkGraph appState={this.state}/> */}
         <ModelPanel appState={this.state} />

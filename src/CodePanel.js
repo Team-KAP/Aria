@@ -29,11 +29,12 @@ class CodePanel extends Component {
         this.state.lossDict.set("Mean Squared Error", "mean_squared_error")
         this.state.lossDict.set("Mean Absolute Error", "mean_absolute_error")
         this.state.lossDict.set("Hinge", "hinge")
+        this.state.lossDict.set("Binary Crossentropy", "binary_crossentropy")
 
-        this.state.weightDict.set("zeros", "Zeroes")
-        this.state.weightDict.set("ones", "Ones")
-        this.state.weightDict.set("normal", "RandomNormal")
-        this.state.weightDict.set("uniform", "RandomUniform")
+        this.state.weightDict.set("zeros", "zeros")
+        this.state.weightDict.set("ones", "ones")
+        this.state.weightDict.set("normal", "random_normal")
+        this.state.weightDict.set("uniform", "random_uniform")
         this.state.weightDict.set("glorot uniform", "glorot_uniform")
         this.state.weightDict.set("he uniform", "he_uniform")
     }
@@ -98,7 +99,7 @@ class CodePanel extends Component {
     render() {
         return (
             <div class="codepanel">
-                <h5 class="codepanel">Generated Code</h5>
+                <h5>Generated Code</h5>
                 <div class="code">
                     <br />
                     {/* <h1>Code</h1>
