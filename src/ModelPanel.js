@@ -118,22 +118,20 @@ class ModelPanel extends Component {
         console.log(g);
 
         // zoomMax: 0.1, 
-        let thing =
-            <Sigma graph={g} style={{ height: "100%" }}
-                settings={{
-                    maxNodeSize: 15, maxEdgeSize: 0.3,
-                    clone: false, defaultNodeColor: "#fff"
-                }}>
 
-                <UpdateNodeProps nodes={g}/>
-            </Sigma>
         
         return (
             <div id="content">
                 <h1>Model</h1>
                 <div style={{ backgroundColor: "#333", height: "90%" }}>
-                    {thing}
-                    <p>g</p>
+                    <Sigma graph={g} style={{ height: "100%" }}
+                    settings={{
+                        maxNodeSize: 15, maxEdgeSize: 0.3,
+                        clone: false, defaultNodeColor: "#fff"
+                    }}>
+
+                    <UpdateNodeProps nodes={g.nodes}/>
+                </Sigma>
                 </div>
             </div>
 
