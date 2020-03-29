@@ -35,7 +35,7 @@ class CodePanel extends Component {
         this.state.weightDict.set("normal", "RandomNormal")
         this.state.weightDict.set("uniform", "RandomUniform")
         this.state.weightDict.set("glorot uniform", "glorot_uniform")
-        this.state.weightDict.set("he uniform", "he_normal")
+        this.state.weightDict.set("he uniform", "he_uniform")
     }
 
     getActivationCode(layer) {
@@ -98,7 +98,7 @@ class CodePanel extends Component {
     render() {
         return (
             <div class="codepanel">
-                <h5>Generated Code</h5>
+                <h5 class="codepanel">Generated Code</h5>
                 <div class="code">
                     <br />
                     {/* <h1>Code</h1>
