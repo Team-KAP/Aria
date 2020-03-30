@@ -1,8 +1,8 @@
 export class network {
     constructor() {
         this.arrLayers = [];
-        this.optimizer = "None";
-        this.learnRate = 0;
+        this.optimizer = "SGD";
+        this.learnRate = 0.001;
         this.loss = "Mean Squared Error";
         this.epochs = 100;
         this.batchSize = 32;
