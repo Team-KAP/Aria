@@ -32,7 +32,21 @@ class BuildPanel extends Component {
         }
     }
 
+    getActivation(selectedLayer) {
+        if (selectedLayer) return selectedLayer.activation;
+        else return "";
+    }
+
+    getInit(selectedLayer) {
+        if (selectedLayer) return selectedLayer.weightInit;
+        else return "";
+    }
+
     render() {
+
+        const loadable = this.props.appState.loadable;
+        const selectedLayer = this.props.appState.network.arrLayers[this.props.appState.selectedLayer];
+        
         return (
             <div>
                 <br />
@@ -55,7 +69,7 @@ class BuildPanel extends Component {
                 </Form>
 
                 <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">Activation</Dropdown.Toggle>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">Activation Function: <i>{this.getActivation(selectedLayer)}</i></Dropdown.Toggle>
                     <Dropdown.Menu>
                         {this.state.activations.map(activation => {
                             return (
@@ -69,11 +83,12 @@ class BuildPanel extends Component {
                         })}
                     </Dropdown.Menu>
                 </Dropdown>
-                <br />
+                {/* <br />
                 <p>{this.props.appState.loadable ? this.props.appState.network.arrLayers[this.props.appState.selectedLayer].activation : "<create a layer>" }</p>
-                <br />
+                <br /> */}
+                <p></p>
                 <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">Weight Initializer</Dropdown.Toggle>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">Weight Initializer: <i>{this.getInit(selectedLayer)}</i></Dropdown.Toggle>
                     <Dropdown.Menu>
                         {this.state.inits.map(init => {
                             return (
@@ -87,11 +102,11 @@ class BuildPanel extends Component {
                         }
                     </Dropdown.Menu>
                 </Dropdown>
-                <br />
+                {/* <br />
                 <p>
                     {this.props.appState.loadable ? this.props.appState.network.arrLayers[this.props.appState.selectedLayer].weightInit : "<create a layer>"}
                     </p>
-                <br />
+                <br /> */}
             </div>
         );
     }
