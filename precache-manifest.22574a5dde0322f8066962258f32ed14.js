@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f373ec4a73d9d5b0bbe545ee187d56c1",
+    "revision": "7572232839bcd7537bb18370e80108e5",
     "url": "/Aria/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Aria/static/css/2.b5efd36a.chunk.css"
   },
   {
-    "revision": "5d35a326a5a2ceacec50",
+    "revision": "0c5302d06d0467ba818b",
     "url": "/Aria/static/css/main.3517641d.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Aria/static/js/2.a8342b98.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5d35a326a5a2ceacec50",
-    "url": "/Aria/static/js/main.4224f1c0.chunk.js"
+    "revision": "0c5302d06d0467ba818b",
+    "url": "/Aria/static/js/main.0318c034.chunk.js"
   },
   {
     "revision": "49bf2477478b7a2c1d4d",
