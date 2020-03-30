@@ -1,6 +1,6 @@
 # NetWeaver
 
-NetWeaver lets anyone build neural networks right from their browser. Add, remove, and tweak layers and generate TensorFlow Keras code on the fly.
+NetWeaver is an artificial neural network visualization tool that automatically generates code on-the-fly as users design their own networks. Users are able to add and remove layers, fine-tune more advanced hyperparameters, and modify aspects of the training process. While they configure the network to their liking, the page generates in real-time the code for the TensorFlow Keras library that will create that exact network.
 
 ![NetWeaver UI](https://i.imgur.com/7ouIJm6.png)
 
