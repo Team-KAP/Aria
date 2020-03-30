@@ -10,7 +10,7 @@ class LearnPanel extends Component {
             input: 12,
             value: 0,
             setValue: 0,
-            currentOpti: "none",
+            currentOpti: "SGD",
             optimizers: [
                 "SGD", "RMSProp", "Adadelta", "Adam"
             ],
@@ -47,7 +47,7 @@ class LearnPanel extends Component {
                 {/* <button onClick={() => this.props.appState.doSetOptimizer()}>Hi</button> */}
                 <br/>
                 <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">Optimizer</Dropdown.Toggle>
+                    <Dropdown.Toggle variant="primary" id="dropdown-basic">Optimizer: <i>{this.state.currentOpti}</i></Dropdown.Toggle>
                     <Dropdown.Menu>
                         {this.state.optimizers.map(opti => {
                             return(
@@ -61,11 +61,9 @@ class LearnPanel extends Component {
                         })}                        
                     </Dropdown.Menu>
                 </Dropdown>
-                <br/>
-                        <p>Current optimizer: {this.state.currentOpti}</p>
-                <br/>
+                <p></p>
                 <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">Loss Functions</Dropdown.Toggle>
+                    <Dropdown.Toggle variant="primary" id="dropdown-basic">Loss Function: <i>{this.props.appState.network.loss}</i></Dropdown.Toggle>
                     <Dropdown.Menu>
                         {this.state.losses.map(loss => {
                             return(

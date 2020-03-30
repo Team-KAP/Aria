@@ -24,7 +24,7 @@ class TrainPanel extends Component {
                 <br />
                 <Form>
                     <Form.Group controlId="formBasicRange">
-                        <Form.Label>Epochs: {this.props.appState.network.epochs}</Form.Label>
+                        <Form.Label>Epochs: <i>{this.props.appState.network.epochs}</i></Form.Label>
                         <Form.Control type="range"
                             onChange={this.handleEpochChange}
                             max="500" 
@@ -34,7 +34,7 @@ class TrainPanel extends Component {
                 </Form>
                 <Form>
                     <Form.Group controlId="formBasicRange">
-                        <Form.Label>Batch Size: {this.props.appState.network.batchSize}</Form.Label>
+                        <Form.Label>Batch Size: <i>{this.props.appState.network.batchSize}</i></Form.Label>
                         <Form.Control type="range"
                             onChange={this.handleBatchChange}
                             min="32"

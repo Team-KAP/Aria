@@ -22,6 +22,7 @@ class App extends Component {
       doSelectLayer: selected_layer => this.doSelectLayer(selected_layer), // pass to modelPanel
       doColorLayer: hoveredlayer => this.doColorLayer(hoveredlayer), // pass to modelPanel
       doAddLayer: () => this.doAddLayer(), // pass to buildPanel, to call as needed
+      doRemoveLayer: () => this.doRemoveLayer(),
       doSetOptimizer: new_opt => this.doSetOptimizer(new_opt),
       doSetActivation: (layer, new_act) => this.doSetActivation(layer, new_act),
       doSetWeightInit: (layer, new_weight) => this.doSetWeightInit(layer, new_weight),
@@ -145,8 +146,24 @@ unhideModelPanel = () => {
     // console.log("finished");
   }
 
+  doRemoveLayer = () => {
+    const selectedLayer = this.state.selectedLayer;
+    const newNetwork = new network();
+    newNetwork.copy(this.state.network);
+
+    newNetwork.removeLayer(selectedLayer);
+    this.setState(prevState => {
+      return {
+        network: newNetwork,
+        selectedLayer: selectedLayer - 1,
+        loadable: (newNetwork.arrLayers.length > 0),
+      }
+    })
+    this.hideModelPanel();
+  }
+
   doAddLayer = () => {
-    let new_layer = new layer(5, 'relu', false, false, "zeros");
+    let new_layer = new layer(5, 'relu', false, false, "glorot uniform");
     const newNetwork = new network();
     newNetwork.copy(this.state.network);
 

@@ -66,6 +66,10 @@ export class network {
         this.arrLayers.push(newLayer);
     }
 
+    removeLayer(index) {
+        this.arrLayers.splice(index, 1);
+    }
+
     // this.doSomething = function () {
     //     console.log(1);
     // }
@@ -77,7 +81,7 @@ export class layer {
         this.numNodes = numNodes; //temporary
         this.activation = activation; //default
         this.isFirstLayer = isFirstLayer;
-        this.weightInit = "glorot uniform";
+        this.weightInit = weightInit;
         //this.isLastLayer = isLastLayer;
     }
     setWeightInit(newWeight) {

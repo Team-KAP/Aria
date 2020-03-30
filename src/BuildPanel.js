@@ -50,16 +50,21 @@ class BuildPanel extends Component {
         return (
             <div>
                 <br />
-                <Button variant="primary" onClick={() => {
+                <Button variant="success" onClick={() => {
                     console.log("adding layer");
                     this.props.appState.doAddLayer();
                 }}>Add Layer {this.props.appState.network.arrLayers.length + 1}</Button>{' '}
+
+                <Button style={{marginLeft: '20px'}} variant="danger" onClick={() => {
+                    console.log("removing layer");
+                    this.props.appState.doRemoveLayer();
+                }}>Remove Layer {this.props.appState.selectedLayer + 1}</Button>{' '}
                 <br />
                 {/* {alert("selected layer is " + this.props.appState.selectedLayer)} */}
                 <br />
                 <Form>
                     <Form.Group controlId="formBasicRange">
-                        <Form.Label>Node count: {this.props.appState.loadable ? this.props.appState.network.arrLayers[this.props.appState.selectedLayer].numNodes : ""}</Form.Label>
+                        <Form.Label>Node Count: {this.props.appState.loadable ? this.props.appState.network.arrLayers[this.props.appState.selectedLayer].numNodes : ""}</Form.Label>
                         <Form.Control type="range" 
                         onChange={this.handleChange} 
                         min="1"
@@ -69,7 +74,7 @@ class BuildPanel extends Component {
                 </Form>
 
                 <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">Activation Function: <i>{this.getActivation(selectedLayer)}</i></Dropdown.Toggle>
+                    <Dropdown.Toggle variant="primary" id="dropdown-basic">Activation Function: <i>{this.getActivation(selectedLayer)}</i></Dropdown.Toggle>
                     <Dropdown.Menu>
                         {this.state.activations.map(activation => {
                             return (
@@ -88,7 +93,7 @@ class BuildPanel extends Component {
                 <br /> */}
                 <p></p>
                 <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">Weight Initializer: <i>{this.getInit(selectedLayer)}</i></Dropdown.Toggle>
+                    <Dropdown.Toggle variant="primary" id="dropdown-basic">Weight Initializer: <i>{this.getInit(selectedLayer)}</i></Dropdown.Toggle>
                     <Dropdown.Menu>
                         {this.state.inits.map(init => {
                             return (
