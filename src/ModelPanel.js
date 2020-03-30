@@ -15,7 +15,7 @@ function getMaxNodeCount(arrLayers) {
     return max;
 }
 
-function layersToGraph(arrLayers) {
+function layersToGraph(arrLayers, coloredLayer) {
 
     let maxNodeCount = getMaxNodeCount(arrLayers);
 
@@ -30,6 +30,8 @@ function layersToGraph(arrLayers) {
         let nodeCount = layer.numNodes;
 
         let x = i * 0.2;
+        let color = i === coloredLayer ? "#add8e6" : "#fff";
+
         let vgap = 0.15 - nodeCount / 200;
         let renderHeight = (nodeCount - 1) * vgap;
         let initY = (2.0 - renderHeight) / 2;
@@ -41,8 +43,9 @@ function layersToGraph(arrLayers) {
             let y = initY + j * vgap;
             let id = i + "," + j;
             let size = 1;
+            
 
-            let node = { x: x, y: y, size: size, id: id };
+            let node = { x: x, y: y, size: size, id: id, color: color};
             nodes.push(node);
             thisLayerNodes.push(node);
         }
@@ -117,6 +120,17 @@ export class ModelPanel extends Component {
         const SELECTED_LAYER = parseInt(id.substring(0,id.indexOf(",")));
         this.props.appState.doSelectLayer(SELECTED_LAYER);
     }
+
+    // onOverNodeFunc = (e) => {
+    //     const node = e.data.node;
+    //     const id = node.id;
+    //     const HOVERED_LAYER = parseInt(id.substring(0,id.indexOf(",")));
+    //     this.props.appState.doColorLayer(HOVERED_LAYER);
+    // }
+
+    // onOutNodeFunc = (e) => {
+    //     this.props.appState.doColorLayer(-1);
+    // }
     
     getSigma(data) {
         // console.log("rendering using data: ");
@@ -125,11 +139,12 @@ export class ModelPanel extends Component {
             graph={data} 
             style={{ height: "100%" }}
             onClickNode={this.onClickNodeFunc}
+            //onOverNode={this.onOverNodeFunc}
+            //onOutNode={this.onOutNodeFunc}
             settings={{
                 maxNodeSize: 15, maxEdgeSize: 0.3,
                 clone: false, 
                 enableHovering: true,
-                defaultNodeColor: "#fff",
                 rescaleIgnoreSize: false, // TODO change?
             }}>
         </Sigma>
@@ -146,12 +161,14 @@ export class ModelPanel extends Component {
     }
 
     render() {
+
         
         // let r = parseInt(Math.random() * 5);
         // let preloaded = layersToGraph(genLayers().slice(0, 5));
 
         let layers = this.props.appState.network.arrLayers;
-        let g = layersToGraph(layers);
+
+        let g = layersToGraph(layers, this.props.appState.coloredLayer);
 
         // console.log("preloaded");
         // console.log(preloaded);

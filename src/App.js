@@ -20,6 +20,7 @@ class App extends Component {
       selectedLayer: 0,
       loadable: false,
       doSelectLayer: selected_layer => this.doSelectLayer(selected_layer), // pass to modelPanel
+      doColorLayer: hoveredlayer => this.doColorLayer(hoveredlayer), // pass to modelPanel
       doAddLayer: () => this.doAddLayer(), // pass to buildPanel, to call as needed
       doSetOptimizer: new_opt => this.doSetOptimizer(new_opt),
       doSetActivation: (layer, new_act) => this.doSetActivation(layer, new_act),
@@ -52,6 +53,7 @@ class App extends Component {
       }
     })
   }
+
   doSetEpochs = new_epochs => {
     let new_network = new network();
     new_network.copy(this.state.network);
@@ -74,11 +76,23 @@ class App extends Component {
     })
   }
   doSelectLayer = selected_layer => {
+
+    this.doColorLayer(selected_layer);
+
     this.setState(prevState => {
       return {
         selectedLayer: selected_layer
       }
     })
+  }
+
+  doColorLayer = colored_layer => {
+    this.setState(prevState => {
+      return {
+        coloredLayer: colored_layer
+      }
+    })
+    this.hideModelPanel();
   }
 
 

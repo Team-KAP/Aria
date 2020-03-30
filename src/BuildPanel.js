@@ -36,11 +36,10 @@ class BuildPanel extends Component {
         return (
             <div>
                 <br />
-                <p>Currently selected layer: {this.props.appState.selectedLayer}</p>
                 <Button variant="primary" onClick={() => {
                     console.log("adding layer");
                     this.props.appState.doAddLayer();
-                }}>Add Layer</Button>{' '}
+                }}>Add Layer {this.props.appState.network.arrLayers.length + 1}</Button>{' '}
                 <br />
                 {/* {alert("selected layer is " + this.props.appState.selectedLayer)} */}
                 <br />
