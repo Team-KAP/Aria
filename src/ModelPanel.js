@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import { Sigma, LoadJSON } from 'react-sigma';
 
 import { layer } from './kerasCode.js'
+import "./CodePanel.css"
 
 function getMaxNodeCount(arrLayers) {
     let max = 0;
@@ -162,7 +163,8 @@ export class ModelPanel extends Component {
                 
             return (
                 <div id="content">
-                    <h3>Model Architecture</h3>
+                    <h2>NetWeaver</h2>
+                    <h5 class="center">Model Architecture</h5>
                     <div style={{ height: "90%" }}>                   
                         {this.getSigma(g)}
                     </div>

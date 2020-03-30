@@ -46,7 +46,7 @@ class CodePanel extends Component {
 
     doGetCode = (network) => {
         return (<p>
-            {this.state.kerasCode.get("beginModel")} <br />
+            {this.state.kerasCode.get("beginModel")} <br /><br/>
         {network.arrLayers.map(layer => {
             let code = "";
             code += this.state.kerasCode.get("addLayer");
@@ -71,6 +71,7 @@ class CodePanel extends Component {
         <br/>
         {this.state.kerasCode.get("compile") + this.state.kerasCode.get("loss") + "'" + this.state.lossDict.get(network.loss) + "'" + ", " +
             this.state.kerasCode.get("optimizer") + "opt)" }
+            <br/>
             <br/>
     {this.state.kerasCode.get("modelfit") + network.epochs + ", " + this.state.kerasCode.get("batch") + network.batchSize + this.state.kerasCode.get("network_end")}
         </p>);
@@ -98,8 +99,8 @@ class CodePanel extends Component {
     }
     render() {
         return (
-            <div class="codepanel">
-                <h5>Generated Code</h5>
+            <div>
+                <h5 class="center">Generated Code</h5>
                 <div class="code">
                     <br />
                     {/* <h1>Code</h1>
