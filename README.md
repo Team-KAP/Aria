@@ -1,6 +1,6 @@
 # NetWeaver
 
-NetWeaver is a program designed to (do stuff).
+NetWeaver lets anyone build neural networks right from their browser. Add, remove, and tweak layers and generate TensorFlow Keras code on the fly.
 
 ## Dev Instructions
 
