@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ea5a44bccd7c9dcf5a0c536516ccc8fa",
+    "revision": "c430a08d1e3e3834b621d146096b6ec8",
     "url": "/NetWeaver/index.html"
   },
   {
-    "revision": "41bee7f6273d6f1e1a97",
+    "revision": "f4af68ff8e59001774e3",
     "url": "/NetWeaver/static/css/2.b5efd36a.chunk.css"
   },
   {
-    "revision": "dd062cccd09615bf8d42",
+    "revision": "98e33d88fbac54950333",
     "url": "/NetWeaver/static/css/main.3517641d.chunk.css"
   },
   {
-    "revision": "41bee7f6273d6f1e1a97",
-    "url": "/NetWeaver/static/js/2.f65fb6b5.chunk.js"
+    "revision": "f4af68ff8e59001774e3",
+    "url": "/NetWeaver/static/js/2.382afa9d.chunk.js"
   },
   {
     "revision": "5ac48c47bb3912b14c2d8de4f56d5ae8",
-    "url": "/NetWeaver/static/js/2.f65fb6b5.chunk.js.LICENSE.txt"
+    "url": "/NetWeaver/static/js/2.382afa9d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "dd062cccd09615bf8d42",
-    "url": "/NetWeaver/static/js/main.9bc4b138.chunk.js"
+    "revision": "98e33d88fbac54950333",
+    "url": "/NetWeaver/static/js/main.937697b4.chunk.js"
   },
   {
     "revision": "eeab113547ac0fd80401",
