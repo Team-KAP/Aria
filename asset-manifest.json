@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/Aria/static/css/main.3517641d.chunk.css",
-    "main.js": "/Aria/static/js/main.0318c034.chunk.js",
-    "main.js.map": "/Aria/static/js/main.0318c034.chunk.js.map",
-    "runtime-main.js": "/Aria/static/js/runtime-main.c99fc22b.js",
-    "runtime-main.js.map": "/Aria/static/js/runtime-main.c99fc22b.js.map",
-    "static/css/2.b5efd36a.chunk.css": "/Aria/static/css/2.b5efd36a.chunk.css",
-    "static/js/2.a8342b98.chunk.js": "/Aria/static/js/2.a8342b98.chunk.js",
-    "static/js/2.a8342b98.chunk.js.map": "/Aria/static/js/2.a8342b98.chunk.js.map",
-    "index.html": "/Aria/index.html",
-    "precache-manifest.22574a5dde0322f8066962258f32ed14.js": "/Aria/precache-manifest.22574a5dde0322f8066962258f32ed14.js",
-    "service-worker.js": "/Aria/service-worker.js",
-    "static/css/2.b5efd36a.chunk.css.map": "/Aria/static/css/2.b5efd36a.chunk.css.map",
-    "static/css/main.3517641d.chunk.css.map": "/Aria/static/css/main.3517641d.chunk.css.map",
-    "static/js/2.a8342b98.chunk.js.LICENSE.txt": "/Aria/static/js/2.a8342b98.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/Aria/static/media/logo.ee7cd8ed.svg"
+    "main.css": "/NetWeaver/static/css/main.3517641d.chunk.css",
+    "main.js": "/NetWeaver/static/js/main.9bc4b138.chunk.js",
+    "main.js.map": "/NetWeaver/static/js/main.9bc4b138.chunk.js.map",
+    "runtime-main.js": "/NetWeaver/static/js/runtime-main.d0ed8821.js",
+    "runtime-main.js.map": "/NetWeaver/static/js/runtime-main.d0ed8821.js.map",
+    "static/css/2.b5efd36a.chunk.css": "/NetWeaver/static/css/2.b5efd36a.chunk.css",
+    "static/js/2.f65fb6b5.chunk.js": "/NetWeaver/static/js/2.f65fb6b5.chunk.js",
+    "static/js/2.f65fb6b5.chunk.js.map": "/NetWeaver/static/js/2.f65fb6b5.chunk.js.map",
+    "index.html": "/NetWeaver/index.html",
+    "precache-manifest.3f61033ed2f19bfb6a32750b8489a58d.js": "/NetWeaver/precache-manifest.3f61033ed2f19bfb6a32750b8489a58d.js",
+    "service-worker.js": "/NetWeaver/service-worker.js",
+    "static/css/2.b5efd36a.chunk.css.map": "/NetWeaver/static/css/2.b5efd36a.chunk.css.map",
+    "static/css/main.3517641d.chunk.css.map": "/NetWeaver/static/css/main.3517641d.chunk.css.map",
+    "static/js/2.f65fb6b5.chunk.js.LICENSE.txt": "/NetWeaver/static/js/2.f65fb6b5.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/NetWeaver/static/media/logo.ee7cd8ed.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.c99fc22b.js",
+    "static/js/runtime-main.d0ed8821.js",
     "static/css/2.b5efd36a.chunk.css",
-    "static/js/2.a8342b98.chunk.js",
+    "static/js/2.f65fb6b5.chunk.js",
     "static/css/main.3517641d.chunk.css",
-    "static/js/main.0318c034.chunk.js"
+    "static/js/main.9bc4b138.chunk.js"
   ]
 }
