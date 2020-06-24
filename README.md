@@ -6,4 +6,4 @@ NetWeaver is an artificial neural network visualization tool that automatically 
 
 ## Dev Instructions
 
-When cloning for the first time, it's necessary to run `npm install` in the cloned directory. 
+When cloning for the first time, it's necessary to run `npm install` in the cloned directory :).  
